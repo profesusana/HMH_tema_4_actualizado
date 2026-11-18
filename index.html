@@ -1,0 +1,1496 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tema 4: Esterilización del material sanitario — Test interactivo (150 preguntas)</title>
+    <meta
+      name="description"
+      content="Aplicación web educativa autocorregible de 150 preguntas sobre esterilización del material sanitario. Elaboración de Susana Felipe Ortiz con ayuda de la IA."
+    />
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --surface: #ffffff;
+        --border: #e2e8f0;
+        --border-strong: #cbd5e1;
+        --text: #0f172a;
+        --text-muted: #475569;
+        --text-subtle: #64748b;
+        --accent: #0369a1;
+        --accent-hover: #075985;
+        --accent-soft: #f0f9ff;
+        --ok: #047857;
+        --ok-border: #059669;
+        --ok-soft: #ecfdf5;
+        --err: #b91c1c;
+        --err-border: #dc2626;
+        --err-soft: #fef2f2;
+        --radius-lg: 12px;
+        --radius-md: 8px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background-color: var(--bg);
+        line-height: 1.5;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      button,
+      select,
+      input {
+        font: inherit;
+      }
+
+      button:not(:disabled),
+      select {
+        cursor: pointer;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .tabular {
+        font-variant-numeric: tabular-nums;
+      }
+
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .topbar {
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .topbar-inner {
+        max-width: 896px;
+        margin: 0 auto;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .topbar-title {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--text);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+
+      .container {
+        max-width: 896px;
+        margin: 0 auto;
+        padding: 32px 16px 48px;
+      }
+
+      @media (min-width: 640px) {
+        .container,
+        .topbar-inner {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+        .container {
+          padding-top: 44px;
+        }
+      }
+
+      .eyebrow {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .hero-title {
+        margin-top: 8px;
+        font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        color: var(--text);
+      }
+
+      .hero-desc {
+        margin-top: 12px;
+        max-width: 48rem;
+        font-size: 1rem;
+        color: var(--text-muted);
+      }
+
+      .author-credit {
+        margin-top: 12px;
+        font-size: 0.9375rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .meta-summary {
+        margin-top: 8px;
+        font-size: 0.75rem;
+        color: var(--text-subtle);
+      }
+
+      .card {
+        margin-top: 28px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 20px;
+      }
+
+      @media (min-width: 640px) {
+        .card {
+          padding: 24px 28px;
+        }
+      }
+
+      .card-tight {
+        margin-top: 0;
+      }
+
+      .section-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .section-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .available-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+
+      .mode-grid {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      @media (min-width: 640px) {
+        .mode-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .choice-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 12px 14px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-align: left;
+        transition: border-color 150ms ease, background-color 150ms ease;
+      }
+
+      .choice-btn:hover {
+        border-color: var(--border-strong);
+        background: var(--bg);
+      }
+
+      .choice-btn.active {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        color: #0c4a6e;
+      }
+
+      .tema-grid {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      @media (min-width: 640px) {
+        .tema-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .select-grid {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      @media (min-width: 640px) {
+        .select-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .field-label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      .select-control {
+        margin-top: 6px;
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        color: var(--text);
+        font-size: 0.875rem;
+      }
+
+      .divider {
+        margin: 24px 0;
+        border: 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .config-two-col {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      @media (min-width: 768px) {
+        .config-two-col {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .preset-row {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .preset-btn {
+        padding: 8px 12px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+
+      .preset-btn:hover {
+        border-color: var(--border-strong);
+        background: var(--bg);
+      }
+
+      .preset-btn.active {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      .custom-count-row {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .number-input {
+        width: 82px;
+        padding: 6px 10px;
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-md);
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .order-grid {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .helper-note {
+        margin-top: 10px;
+        font-size: 0.75rem;
+        color: var(--text-subtle);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: var(--radius-md);
+        border: 1px solid transparent;
+        font-size: 0.875rem;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: background-color 150ms ease, border-color 150ms ease;
+      }
+
+      .btn:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      .btn-primary:hover:not(:disabled) {
+        background: var(--accent-hover);
+      }
+
+      .btn-secondary {
+        background: var(--surface);
+        border-color: var(--border-strong);
+        color: var(--text-muted);
+      }
+
+      .btn-secondary:hover:not(:disabled) {
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .btn-compact {
+        padding: 6px 12px;
+        font-size: 0.8125rem;
+      }
+
+      .actions-bar {
+        margin-top: 28px;
+        padding-top: 22px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .progress-wrap {
+        margin-bottom: 20px;
+      }
+
+      .progress-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 0.875rem;
+      }
+
+      .progress-track {
+        margin-top: 8px;
+        height: 6px;
+        width: 100%;
+        background: var(--border);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: var(--accent);
+        border-radius: 999px;
+        transition: width 250ms ease;
+      }
+
+      .q-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 0.75rem;
+      }
+
+      .q-topic {
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      .q-id {
+        color: var(--text-subtle);
+      }
+
+      .q-stem {
+        margin-top: 12px;
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--text);
+      }
+
+      @media (min-width: 640px) {
+        .q-stem {
+          font-size: 1.25rem;
+        }
+      }
+
+      .options-list {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .option-btn {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 14px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        color: var(--text);
+        text-align: left;
+        transition: border-color 150ms ease, background-color 150ms ease;
+      }
+
+      .option-btn:hover:not(:disabled) {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+      }
+
+      .option-btn:disabled {
+        cursor: default;
+      }
+
+      .option-letter {
+        flex-shrink: 0;
+        margin-top: 1px;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        border: 1px solid var(--border-strong);
+        background: var(--bg);
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .option-text {
+        flex: 1;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .option-status {
+        flex-shrink: 0;
+        margin-top: 2px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .option-btn.opt-correct {
+        border-color: var(--ok-border);
+        background: var(--ok-soft);
+        color: #064e3b;
+      }
+
+      .option-btn.opt-correct .option-letter {
+        border-color: var(--ok);
+        background: var(--ok);
+        color: #ffffff;
+      }
+
+      .option-btn.opt-correct .option-status {
+        color: var(--ok);
+      }
+
+      .option-btn.opt-wrong {
+        border-color: var(--err-border);
+        background: var(--err-soft);
+        color: #7f1d1d;
+      }
+
+      .option-btn.opt-wrong .option-letter {
+        border-color: var(--err);
+        background: var(--err);
+        color: #ffffff;
+      }
+
+      .option-btn.opt-wrong .option-status {
+        color: var(--err);
+      }
+
+      .option-btn.opt-dim {
+        background: #f8fafc;
+        color: var(--text-subtle);
+      }
+
+      .explanation-box {
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border);
+      }
+
+      .explanation-box.is-ok {
+        border-color: #a7f3d0;
+        background: var(--ok-soft);
+      }
+
+      .explanation-box.is-err {
+        border-color: #fecaca;
+        background: var(--err-soft);
+      }
+
+      .explanation-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9375rem;
+        font-weight: 700;
+      }
+
+      .explanation-box.is-ok .explanation-head {
+        color: var(--ok);
+      }
+
+      .explanation-box.is-err .explanation-head {
+        color: var(--err);
+      }
+
+      .explanation-label {
+        margin-top: 10px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .explanation-body {
+        margin-top: 4px;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: var(--text);
+      }
+
+      .results-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .score-box {
+        flex-shrink: 0;
+      }
+
+      @media (min-width: 640px) {
+        .score-box {
+          text-align: right;
+        }
+      }
+
+      .score-value {
+        margin-top: 4px;
+        font-size: 2.25rem;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .score-value.ok {
+        color: var(--ok);
+      }
+
+      .score-value.mid {
+        color: var(--accent);
+      }
+
+      .score-value.low {
+        color: var(--err);
+      }
+
+      .metrics-grid {
+        margin: 24px 0 0;
+        padding: 0 0 24px;
+        border-bottom: 1px solid var(--border);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      @media (min-width: 640px) {
+        .metrics-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .metric-dt {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-subtle);
+      }
+
+      .metric-dd {
+        margin: 4px 0 0;
+        font-size: 1.5rem;
+        font-weight: 800;
+      }
+
+      .breakdown-list {
+        margin-top: 12px;
+      }
+
+      .breakdown-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 10px 0;
+        border-bottom: 1px solid #f1f5f9;
+        font-size: 0.875rem;
+      }
+
+      .missed-list {
+        margin-top: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .missed-item {
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--bg);
+        font-size: 0.875rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  <script src="/_aistudio-iframe.js?v=29045eb3"></script></head>
+  <body>
+    <!-- VISTA 1: BIENVENIDA -->
+    <div id="view-welcome">
+      <main class="container">
+        <header>
+          <p class="eyebrow">Cuidados Auxiliares de Enfermería · Unidad de Esterilización</p>
+          <h1 class="hero-title">Tema 4: Esterilización del material sanitario</h1>
+          <p class="hero-desc">
+            Cuestionario interactivo autocorregible con 150 preguntas orientadas a la comprensión de
+            métodos físicos y químicos, empaquetado, validación de procesos y organización de la
+            Unidad Central de Esterilización.
+          </p>
+          <p class="author-credit">Elaboración de Susana Felipe Ortiz con ayuda de la IA</p>
+          <p class="meta-summary tabular">
+            150 preguntas validadas · 6 epígrafes · 21 subepígrafes · Corrección inmediata con explicación didáctica
+          </p>
+        </header>
+
+        <section class="card" aria-label="Configuración del cuestionario">
+          <div>
+            <div class="section-head">
+              <h2 class="section-title">1. Selecciona el contenido</h2>
+              <span class="available-label tabular">
+                Disponibles: <strong id="lbl-available">150</strong> preguntas
+              </span>
+            </div>
+
+            <div class="mode-grid" role="radiogroup" aria-label="Modo de selección de epígrafe">
+              <button type="button" role="radio" aria-checked="true" class="choice-btn active" data-scope="all">
+                <span>Todos los epígrafes</span>
+                <span class="mono tabular">150</span>
+              </button>
+              <button type="button" role="radio" aria-checked="false" class="choice-btn" data-scope="tema">
+                <span>Por epígrafe</span>
+                <span class="mono tabular">6</span>
+              </button>
+              <button type="button" role="radio" aria-checked="false" class="choice-btn" data-scope="subtema">
+                <span>Por subepígrafe</span>
+                <span class="mono tabular">21</span>
+              </button>
+            </div>
+
+            <div id="panel-tema" class="tema-grid hidden"></div>
+
+            <div id="panel-subtema" class="select-grid hidden">
+              <div>
+                <label class="field-label" for="sel-tema">Epígrafe principal</label>
+                <select id="sel-tema" class="select-control"></select>
+              </div>
+              <div>
+                <label class="field-label" for="sel-subtema">Subepígrafe específico</label>
+                <select id="sel-subtema" class="select-control"></select>
+              </div>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="config-two-col">
+            <div>
+              <h2 class="section-title">2. Número de preguntas</h2>
+              <div id="preset-container" class="preset-row"></div>
+              <div class="custom-count-row">
+                <label for="inp-count" id="lbl-count-range">Cantidad personalizada (1–150):</label>
+                <input id="inp-count" type="number" min="1" max="150" value="20" class="number-input tabular" />
+              </div>
+            </div>
+
+            <div>
+              <h2 class="section-title">3. Orden de las preguntas</h2>
+              <div class="order-grid">
+                <button type="button" class="choice-btn active" data-order="sequential">
+                  <span>Secuencial</span>
+                </button>
+                <button type="button" class="choice-btn" data-order="random">
+                  <span>Aleatorio</span>
+                </button>
+              </div>
+              <p class="helper-note">
+                Las cuatro alternativas (A, B, C y D) de cada pregunta conservan siempre su orden y redacción original validada.
+              </p>
+            </div>
+          </div>
+
+          <div class="actions-bar">
+            <button type="button" id="btn-start" class="btn btn-primary">
+              Comenzar práctica (20 preguntas)
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- VISTA 2: CUESTIONARIO -->
+    <div id="view-quiz" class="hidden">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <p class="topbar-title">Tema 4: Esterilización del material sanitario</p>
+          <div class="topbar-actions">
+            <button type="button" id="btn-restart" class="btn btn-secondary btn-compact">
+              Reiniciar práctica
+            </button>
+            <button type="button" id="btn-home-top" class="btn btn-secondary btn-compact">
+              Volver al inicio
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="container" style="padding-top: 20px">
+        <div class="progress-wrap" style="margin-bottom: 14px">
+          <div class="progress-meta tabular">
+            <strong id="lbl-progress-index">Pregunta 1 de 20</strong>
+            <span id="lbl-progress-stats" style="color: var(--text-muted)">Respondidas: 0 / 20 · Aciertos: 0</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <article class="card card-tight">
+          <div class="q-meta">
+            <p class="q-topic" id="q-topic"></p>
+            <span class="q-id mono tabular" id="q-id"></span>
+          </div>
+
+          <h1 class="q-stem" id="q-stem"></h1>
+
+          <div class="options-list" id="options-list" role="group" aria-label="Alternativas de respuesta"></div>
+
+          <section id="explanation-box" class="explanation-box hidden" aria-live="polite">
+            <div class="explanation-head" id="explanation-head"></div>
+            <p class="explanation-label">Explicación didáctica</p>
+            <p class="explanation-body" id="explanation-body"></p>
+          </section>
+
+          <div class="actions-bar" style="margin-top: 18px; padding-top: 16px">
+            <button type="button" id="btn-prev" class="btn btn-secondary">
+              Pregunta anterior
+            </button>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px">
+              <button type="button" id="btn-finish-early" class="btn btn-secondary hidden">
+                Finalizar y ver resultados
+              </button>
+              <button type="button" id="btn-next" class="btn btn-primary">
+                Siguiente pregunta
+              </button>
+            </div>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <!-- VISTA 3: RESULTADOS -->
+    <div id="view-results" class="hidden">
+      <main class="container">
+        <section class="card card-tight" aria-label="Resumen de resultados">
+          <p class="eyebrow">Resultados de la práctica · Tema 4: Esterilización</p>
+
+          <div class="results-header">
+            <div style="max-width: 36rem">
+              <h1 class="hero-title" id="res-title" style="font-size: 1.75rem"></h1>
+              <p class="hero-desc" id="res-msg" style="margin-top: 8px; font-size: 0.9375rem"></p>
+            </div>
+            <div class="score-box">
+              <p class="metric-dt">Calificación sobre 10</p>
+              <p class="score-value tabular" id="res-score"></p>
+              <p class="mono tabular" id="res-formula" style="margin-top: 4px; font-size: 0.75rem; color: var(--text-subtle)"></p>
+            </div>
+          </div>
+
+          <dl class="metrics-grid tabular">
+            <div>
+              <dt class="metric-dt">Preguntas realizadas</dt>
+              <dd class="metric-dd" id="res-completed"></dd>
+            </div>
+            <div>
+              <dt class="metric-dt">Aciertos</dt>
+              <dd class="metric-dd" id="res-hits" style="color: var(--ok)"></dd>
+            </div>
+            <div>
+              <dt class="metric-dt">Errores</dt>
+              <dd class="metric-dd" id="res-errors" style="color: var(--err)"></dd>
+            </div>
+            <div>
+              <dt class="metric-dt">Porcentaje de acierto</dt>
+              <dd class="metric-dd" id="res-percent"></dd>
+            </div>
+          </dl>
+
+          <div id="res-breakdown-wrap" class="hidden" style="padding: 20px 0; border-bottom: 1px solid var(--border)">
+            <h2 class="section-title" style="font-size: 0.9375rem">Rendimiento por epígrafe</h2>
+            <div id="res-breakdown-list" class="breakdown-list"></div>
+          </div>
+
+          <div id="res-missed-wrap" class="hidden" style="padding: 20px 0; border-bottom: 1px solid var(--border)">
+            <button type="button" id="btn-toggle-missed" class="btn btn-secondary btn-compact"></button>
+            <div id="res-missed-list" class="missed-list hidden"></div>
+          </div>
+
+          <div class="actions-bar" style="border-top: 0; margin-top: 20px; padding-top: 4px">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px">
+              <button type="button" id="btn-repeat-incorrect" class="btn btn-primary hidden">Repetir incorrectas</button>
+              <button type="button" id="btn-repeat" class="btn btn-primary">Repetir cuestionario</button>
+              <button type="button" id="btn-other-topic" class="btn btn-secondary">Elegir otro epígrafe</button>
+              <button type="button" id="btn-home-end" class="btn btn-secondary">Volver al inicio</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      (function () {
+        'use strict';
+
+        const TEMAS_ESTRUCTURA = [{"id":"T1","nombre":"1. Esterilización y formas de esterilización","subtemas":[{"id":"1.1","nombre":"1.1. Concepto de esterilización"},{"id":"1.2","nombre":"1.2. Métodos de esterilización"}]},{"id":"T2","nombre":"2. Sistemas físicos de esterilización","subtemas":[{"id":"2.1","nombre":"2.1. Radiación ultravioleta"},{"id":"2.2","nombre":"2.2. Radiación gamma"},{"id":"2.3","nombre":"2.3. Calor seco: horno Pasteur (HP)"},{"id":"2.4","nombre":"2.4. Calor húmedo: autoclave de vapor"}]},{"id":"T3","nombre":"3. Sistemas químicos de esterilización","subtemas":[{"id":"3.1","nombre":"3.1. Óxido de etileno (OE)"},{"id":"3.2","nombre":"3.2. Gas plasma de peróxido de hidrógeno (GPPH)"},{"id":"3.3","nombre":"3.3. Vapor de formaldehído (VFA)"},{"id":"3.4","nombre":"3.4. Ácido peracético (APA)"}]},{"id":"T4","nombre":"4. Empaquetado para la esterilización","subtemas":[{"id":"4.1","nombre":"4.1. Tipos de empaquetado"},{"id":"4.2","nombre":"4.2. El empaquetado del material"},{"id":"4.3","nombre":"4.3. El sellado de los paquetes"}]},{"id":"T5","nombre":"5. Validación de los procesos de esterilización","subtemas":[{"id":"5.1","nombre":"5.1. Controles físicos"},{"id":"5.2","nombre":"5.2. Controles químicos"},{"id":"5.3","nombre":"5.3. Controles biológicos"}]},{"id":"T6","nombre":"6. La Unidad Central de Esterilización (UCE)","subtemas":[{"id":"6.0","nombre":"6.0. Estructura, flujos y función general de la UCE"},{"id":"6.1","nombre":"6.1. Zona sucia"},{"id":"6.2","nombre":"6.2. Zona limpia"},{"id":"6.3","nombre":"6.3. Zona estéril"},{"id":"6.4","nombre":"6.4. El personal de la UCE"}]}];
+        const QUESTIONS = [{"id":1,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.1","subtema":"1.1. Concepto de esterilización","enunciado":"En una consulta hospitalaria se prepara material clasificado por Spaulding como crítico para realizar una intervención en una zona estéril del organismo. ¿Qué criterio define la eficacia real del tratamiento aplicado a dicho material?","opciones":{"A":"La reducción significativa de la carga bacteriana vegetativa hasta niveles clínicamente seguros.","B":"La eliminación completa de todos los microorganismos, incluidas sus formas de resistencia.","C":"La inactivación selectiva de bacterias patógenas y virus con envoltura mediante desinfección alta.","D":"La inhibición temporal del crecimiento fúngico y bacteriano en las superficies metálicas externas."},"correcta":"B","explicacion":"La esterilización es el método destinado a los objetos críticos y consiste en la eliminación total de microorganismos de los objetos inanimados, destruyendo todo tipo de virus, hongos y bacterias, incluidas sus formas de resistencia (como las esporas). No se limita a reducir la carga microbiana (A y C) ni a inhibir temporalmente su crecimiento (D)."},{"id":2,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.1","subtema":"1.1. Concepto de esterilización","enunciado":"Al valorar un lote de instrumental quirúrgico tras su procesamiento, un profesional afirma que el material ha alcanzado un «nivel intermedio de esterilidad» válido para curas superficiales. ¿Por qué es incorrecto este planteamiento?","opciones":{"A":"Porque los niveles intermedios de esterilidad se reservan solo para ropa procesada en lavandería.","B":"Porque la esterilidad intermedia requiere una segunda exposición química antes de llegar al almacén.","C":"Porque el criterio de Spaulding asigna esos niveles intermedios únicamente al material semicrítico reutilizable.","D":"Porque en esterilización no existen niveles y todo objeto es estéril o no lo es."},"correcta":"D","explicacion":"A diferencia de la desinfección (que sí distingue niveles bajo, intermedio y alto), en la esterilización no hay niveles: un objeto está estéril o no lo está. Cualquier objeto no estéril empleado en zonas estériles supone un riesgo para la salud, de ahí la exigencia de certificar los procesos."},{"id":3,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.1","subtema":"1.1. Concepto de esterilización","enunciado":"Un equipo de enfermería revisa los parámetros matemáticos de validación de un nuevo ciclo térmico y consulta el significado del denominado «valor F». ¿Qué magnitud representa exactamente este parámetro?","opciones":{"A":"El tiempo en minutos necesario para lograr la esterilidad del producto a una temperatura dada.","B":"La presión máxima en atmósferas alcanzada dentro de la cámara durante la fase de meseta.","C":"El porcentaje medio de esporas resistentes inactivadas por cada minuto de exposición al agente.","D":"La temperatura mínima sostenida que exige el equipo para destruir priones en cargas metálicas."},"correcta":"A","explicacion":"Según el documento, la esterilización se mide mediante valores calculados matemáticamente; entre ellos destaca el valor F, definido como el tiempo en minutos necesario para conseguir la esterilidad de un producto por medio de la exposición a un agente esterilizante a una temperatura determinada. No mide presión (B), porcentaje por minuto (C) ni temperatura umbral aislada (D)."},{"id":4,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.1","subtema":"1.1. Concepto de esterilización","enunciado":"En una unidad asistencial se procesan tres artículos: un termómetro axilar, un espéculo vaginal y unas pinzas hemostáticas destinadas a cirugía abdominal. Según la clasificación de Spaulding, ¿cuál requiere obligatoriamente esterilización?","opciones":{"A":"El termómetro axilar, por entrar en contacto directo con la piel intacta del paciente.","B":"El espéculo vaginal, por atravesar cavidades anatómicas con flora saprófita habitual.","C":"Las pinzas hemostáticas, por acceder a tejidos estériles durante el acto quirúrgico.","D":"Los tres artículos por igual, al proceder todos de la actividad clínica hospitalaria."},"correcta":"C","explicacion":"Los objetos no críticos (termómetro) y semicríticos (espéculo) reciben limpieza o desinfección según su nivel de riesgo, mientras que los objetos clasificados como críticos —como el instrumental quirúrgico que penetra en zonas estériles del cuerpo— deben someterse obligatoriamente a esterilización."},{"id":5,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.1","subtema":"1.1. Concepto de esterilización","enunciado":"Durante una auditoría interna en la central de esterilización se recuerda la necesidad de certificar cada carga procesada antes de distribuirla. ¿Qué justifica primordialmente esta exigencia normativa y asistencial?","opciones":{"A":"Reducir el consumo energético de los equipos en los turnos de menor carga quirúrgica.","B":"Evitar que las lavadoras automáticas deterioren los mangos articulados del instrumental.","C":"Garantizar que los productos alcanzan la condición de esterilidad y no suponen riesgo sanitario.","D":"Clasificar los paquetes terminados según el grado de desinfección obtenido en el ciclo."},"correcta":"C","explicacion":"Dado que la esterilización es un estado absoluto («es estéril o no lo es») y que un artículo no estéril supone un riesgo grave para la salud del paciente, los procesos de esterilización deben certificarse rigurosamente para acreditar la eliminación total de microorganismos."},{"id":6,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.1","subtema":"1.1. Concepto de esterilización","enunciado":"Un estudiante confunde la desinfección de alto nivel con la esterilización al afirmar que ambas destruyen exactamente los mismos agentes biológicos. ¿Qué elemento marca la diferencia decisiva en favor de la esterilización?","opciones":{"A":"La eliminación eficaz de todo tipo de virus, bacterias y esporas resistentes.","B":"El empleo obligado de agentes químicos líquidos fríos sobre metal y plástico.","C":"La aplicación directa de soluciones antisépticas autorizadas sobre piel intacta.","D":"La conservación prolongada del instrumental crítico sin requerir envoltorio previo."},"correcta":"A","explicacion":"La esterilización destruye todo tipo de virus, hongos y bacterias, incluyendo sus formas de resistencia (como las esporas bacterianas), en objetos inanimados. No se limita a agentes líquidos (B), ni se aplica sobre tejidos vivos (C, que sería antisepsia), y en general exige empaquetado previo para conservar la esterilidad (D)."},{"id":7,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.2","subtema":"1.2. Métodos de esterilización","enunciado":"Un hospital evalúa incorporar un nuevo sistema de esterilización que destruye los microorganismos rápidamente, pero corroe con facilidad las ópticas y deja residuos tóxicos en el ambiente. ¿Qué requisitos de un método adecuado incumple directamente?","opciones":{"A":"Eficacia y monitorización mediante controles biológicos.","B":"Penetrabilidad y eficiencia en el tiempo de exposición.","C":"Eficacia y compatibilidad química con las envolturas.","D":"Compatibilidad con los materiales y atoxicidad del proceso."},"correcta":"D","explicacion":"Un método de esterilización adecuado debe cumplir cinco requisitos: eficacia y eficiencia, penetrabilidad, compatibilidad (no alterar materiales ni equipos), atoxicidad (no suponer riesgo para trabajadores, pacientes ni medio ambiente) y monitorización. Corroer el material vulnera la compatibilidad y generar residuos peligrosos vulnera la atoxicidad."},{"id":8,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.2","subtema":"1.2. Métodos de esterilización","enunciado":"Al clasificar los métodos actuales de esterilización en una sesión formativa, un técnico agrupa varios procedimientos según la naturaleza del agente empleado. ¿Qué pareja corresponde íntegramente a métodos físicos?","opciones":{"A":"Vapor de formaldehído y autoclave de vapor de agua.","B":"Radiación gamma y horno Pasteur de calor seco.","C":"Gas plasma de peróxido de hidrógeno y radiación ultravioleta.","D":"Óxido de etileno y sistema de inmersión en ácido peracético."},"correcta":"B","explicacion":"Los métodos físicos utilizan energía en forma de radiación (rayos ultravioleta y rayos gamma) o calor (horno Pasteur y autoclave de vapor de agua). El vapor de formaldehído, el gas plasma de peróxido de hidrógeno, el óxido de etileno y el ácido peracético pertenecen a los métodos químicos."},{"id":9,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.2","subtema":"1.2. Métodos de esterilización","enunciado":"Un protocolo de la central exige verificar la «penetrabilidad» de un sistema de esterilización antes de validarlo para cajas quirúrgicas complejas. ¿Qué comprueba exactamente este criterio?","opciones":{"A":"La capacidad del agente esterilizante para acceder al interior de materiales y equipos.","B":"La resistencia mecánica del envoltorio externo frente a roturas durante el transporte.","C":"La velocidad con la que los sensores físicos imprimen el registro gráfico del ciclo.","D":"La ausencia de efectos irritantes para el personal que descarga los esterilizadores."},"correcta":"A","explicacion":"La penetrabilidad se define como la capacidad del método esterilizante para acceder al interior de los materiales y equipos (por ejemplo, paquetes textiles o lúmenes estrechos). La resistencia del envoltorio, el registro físico y la seguridad del personal corresponden a otros aspectos del proceso (empaquetado, monitorización y atoxicidad)."},{"id":10,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.2","subtema":"1.2. Métodos de esterilización","enunciado":"Dentro de los sistemas químicos de esterilización, existen procedimientos que actúan en estado gaseoso o vapor y otros en estado líquido. ¿Cuál de los siguientes modos actúa específicamente en fase líquida?","opciones":{"A":"El vapor de formaldehído a presión subatmosférica.","B":"El ácido peracético aplicado por inmersión en frío.","C":"El gas plasma generado a partir de peróxido de hidrógeno.","D":"El óxido de etileno mezclado con gases inertes portadores."},"correcta":"B","explicacion":"En la clasificación de métodos químicos, el óxido de etileno, el gas plasma de peróxido de hidrógeno y el vapor de formaldehído pertenecen al sistema gas/vapor, mientras que el ácido peracético es el único representante del sistema líquido."},{"id":11,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.2","subtema":"1.2. Métodos de esterilización","enunciado":"Una central descarta un procedimiento de esterilización aunque elimina todas las esporas bacterianas sin dañar el instrumental, porque no admite indicadores capaces de verificar el resultado de cada ciclo. ¿Qué requisito esencial falta en este caso?","opciones":{"A":"La eficiencia operativa en tiempo, consumo y capacidad de carga.","B":"La monitorización mediante controles físicos, químicos y biológicos.","C":"La compatibilidad física con metales, ópticas y plásticos termorresistentes.","D":"La penetrabilidad uniforme en textiles, envases y cavidades tubulares."},"correcta":"B","explicacion":"Todo método de esterilización adecuado debe permitir su monitorización mediante controles físicos, químicos y biológicos para poder certificar la validez de cada proceso. Aunque cumpla eficacia y compatibilidad, sin posibilidad de control y certificación no es un método válido."},{"id":12,"temaId":"T1","tema":"1. Esterilización y formas de esterilización","subtemaId":"1.2","subtema":"1.2. Métodos de esterilización","enunciado":"En relación con el requisito de «atoxicidad» exigido a los métodos de esterilización, ¿qué tres ámbitos deben quedar protegidos frente a posibles riesgos?","opciones":{"A":"Los envases mixtos, los carros de reparto y el almacén estéril.","B":"Los filtros sintéticos, las bombas de vacío y los sensores térmicos.","C":"Los trabajadores de la central, los pacientes y el medio ambiente.","D":"Los equipos informáticos, los registros de planta y la lavandería."},"correcta":"C","explicacion":"El requisito de atoxicidad establece expresamente que el método de esterilización no debe suponer un riesgo ni para los trabajadores que lo manipulan, ni para los pacientes que reciben el material, ni para el medio ambiente."},{"id":13,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.1","subtema":"2.1. Radiación ultravioleta","enunciado":"Un técnico propone utilizar lámparas de radiación ultravioleta C para esterilizar el interior de cajas metálicas cerradas con instrumental quirúrgico. ¿Por qué resulta inadecuada esta propuesta?","opciones":{"A":"Porque los rayos UV-C generan residuos químicos tóxicos sobre el acero inoxidable.","B":"Porque la radiación UV-C apenas penetra y existen microorganismos resistentes a ella.","C":"Porque la radiación UV-C exige instalaciones blindadas equivalentes a las del cobalto 60.","D":"Porque los rayos UV-C funden con rapidez los componentes metálicos articulados internos."},"correcta":"B","explicacion":"La radiación ultravioleta C altera el ADN de los microorganismos, pero es un método poco eficaz para instrumental debido a su baja capacidad penetrante (no atraviesa envases ni zonas en sombra) y a la existencia de microorganismos resistentes. Tampoco deja residuos (A) ni es radiación ionizante de cobalto 60 (C)."},{"id":14,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.1","subtema":"2.1. Radiación ultravioleta","enunciado":"Pese a sus importantes limitaciones de penetración, ¿en qué aplicación concreta sigue empleándose la radiación ultravioleta C dentro del entorno hospitalario?","opciones":{"A":"En la esterilización ambiental de quirófanos al ser rápida y sin residuos.","B":"En la esterilización terminal de prótesis metálicas al no requerir calor elevado.","C":"En el tratamiento de endoscopios flexibles al penetrar fácilmente en sus lúmenes.","D":"En la desinfección de paquetes textiles al atravesar sin daño la celulosa."},"correcta":"A","explicacion":"Aunque es poco eficaz, al ser un método rápido y no dejar residuos se utiliza en la esterilización ambiental de quirófanos, si bien el documento señala que no se ha comprobado que disminuya la incidencia de infecciones. No sirve para prótesis, endoscopios con lúmenes ni paquetes textiles."},{"id":15,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.1","subtema":"2.1. Radiación ultravioleta","enunciado":"¿Cuál es el mecanismo biológico mediante el cual los rayos ultravioleta C provocan la muerte de los microorganismos expuestos directamente?","opciones":{"A":"La oxidación lenta de las membranas lipídicas a través del aire caliente circulante.","B":"La coagulación irreversible de todas las proteínas celulares mediante vapor saturado.","C":"La alteración directa del ADN microbiano tras la absorción de la radiación UV-C.","D":"La extracción de electrones atómicos por desintegración de un isótopo radiactivo."},"correcta":"C","explicacion":"Los rayos ultravioleta C provocan la muerte celular por alteración del ADN. La oxidación corresponde al calor seco (A), la coagulación proteica al calor húmedo (B) y la ionización por isótopo radiactivo a la radiación gamma (D)."},{"id":16,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.1","subtema":"2.1. Radiación ultravioleta","enunciado":"En una comisión de infecciones se debate ampliar el uso de radiación UV-C en los quirófanos argumentando que reduce drásticamente las infecciones quirúrgicas. ¿Qué matiz recoge la evidencia descrita en el tema?","opciones":{"A":"Está demostrado que sustituye con ventaja al flujo laminar y al autoclave de vapor.","B":"No se ha comprobado que su empleo ambiental disminuya la incidencia de infecciones.","C":"Su eficacia preventiva supera el 56,6% registrado por las centrales de esterilización.","D":"Solo disminuye las infecciones cuando se combina con vapor de formaldehído al 2%."},"correcta":"B","explicacion":"El documento indica expresamente que, aunque la radiación UV-C se emplea en la esterilización ambiental de quirófanos por su rapidez y ausencia de residuos, no se ha comprobado que disminuya la incidencia de infecciones. El dato del 56,6% (C) corresponde al control global de procesos de la UCE según el estudio EPINE."},{"id":17,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.2","subtema":"2.2. Radiación gamma","enunciado":"Una industria fabricante necesita esterilizar grandes lotes de jeringas desechables de plástico, prótesis y antibióticos termosensibles ya envasados. ¿Qué método físico resulta idóneo para este escenario?","opciones":{"A":"La radiación gamma generada por desintegración de cobalto 60.","B":"El horno Pasteur de aire caliente circulante a 180 °C.","C":"La radiación ultravioleta C aplicada sobre cintas transportadoras.","D":"El ciclo flash de autoclave de vapor a 135 °C sin envasar."},"correcta":"A","explicacion":"La radiación gamma permite procesar grandes cantidades sin requerir altas temperaturas, por lo que es válida para material termosensible (antibióticos, vacunas), prótesis, injertos y todo tipo de material médico desechable en el ámbito industrial. El horno Pasteur y el ciclo flash usan altas temperaturas y no sirven para material termosensible."},{"id":18,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.2","subtema":"2.2. Radiación gamma","enunciado":"Un hospital plantea instalar un equipo de esterilización por radiación gamma en su UCE para reprocesar el instrumental diario. ¿Por qué no se utiliza este sistema en el ámbito hospitalario?","opciones":{"A":"Porque carece de poder de penetración en materiales plásticos y envases sellados.","B":"Porque eleva la temperatura de la cámara por encima de los 200 °C en pocos minutos.","C":"Porque solo destruye bacterias vegetativas y resulta ineficaz frente a esporas.","D":"Porque es un método caro que exige instalaciones complejas con alta seguridad."},"correcta":"D","explicacion":"La radiación gamma es un método muy costoso y requiere instalaciones complejas con altos niveles de seguridad radiológica; por ello no se utiliza en el ámbito hospitalario, sino exclusivamente en el ámbito industrial. Tiene alta penetración (A) y no requiere alta temperatura (B)."},{"id":19,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.2","subtema":"2.2. Radiación gamma","enunciado":"¿De qué manera destruye los microorganismos la radiación ionizante empleada en la esterilización gamma?","opciones":{"A":"Extrae electrones atómicos, rompe enlaces moleculares y daña ADN y proteínas.","B":"Deshidrata el citoplasma celular mediante corrientes secas de aire caliente filtrado.","C":"Condensa vapor saturado sobre la pared bacteriana liberando calor latente elevado.","D":"Disuelve las cubiertas lipídicas mediante inmersión química prolongada a baja temperatura."},"correcta":"A","explicacion":"La radiación ionizante tiene energía suficiente para extraer electrones de los átomos y romper enlaces moleculares, produciendo daños irreparables en el ADN e inutilizando las proteínas de los microorganismos."},{"id":20,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.2","subtema":"2.2. Radiación gamma","enunciado":"Al recibir en el almacén estéril un envío industrial de catéteres y material desechable, el envase muestra impreso el símbolo normalizado «STERILE R». ¿Qué información aporta esa letra «R»?","opciones":{"A":"Que el producto ha sido sometido a un ciclo rápido de vapor sin envasar.","B":"Que el producto requiere reesterilización previa en la central del hospital.","C":"Que el producto ha sido esterilizado mediante el sistema de radiación.","D":"Que el envase es resistente especialmente a temperaturas superiores a 180 °C."},"correcta":"C","explicacion":"El símbolo «STERILE R» es el pictograma normalizado que identifica los productos esterilizados por radiación (habitualmente radiación gamma a nivel industrial). En contraste, «STERILE EO» identifica la esterilización con óxido de etileno."},{"id":21,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.2","subtema":"2.2. Radiación gamma","enunciado":"¿Cuál es el elemento radiactivo cuya desintegración genera la radiación utilizada en los sistemas industriales de esterilización por rayos gamma?","opciones":{"A":"El peróxido de hidrógeno ionizado por electromagnetismo.","B":"El óxido de etileno licuado a presión atmosférica.","C":"El vapor de formaldehído a presión subatmosférica.","D":"El cobalto 60 contenido en instalaciones blindadas."},"correcta":"D","explicacion":"Según el texto, la radiación gamma consiste en someter al material a una radiación ionizante generada por la desintegración del cobalto 60. Las demás opciones corresponden a agentes químicos en estado gaseoso o plasma."},{"id":22,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.3","subtema":"2.3. Calor seco: horno Pasteur (HP)","enunciado":"En un laboratorio clínico se necesita esterilizar polvos de talco, vaselina y pipetas de vidrio termorresistentes que se deteriorarían en contacto con la humedad. ¿Qué equipo resulta indicado?","opciones":{"A":"El horno Pasteur o estufa Poupinel de aire caliente circulante.","B":"El autoclave gravitacional de vapor de agua a 135 °C.","C":"La cámara automática de inmersión en ácido peracético líquido.","D":"El esterilizador de gas plasma de peróxido de hidrógeno en ciclo rápido."},"correcta":"A","explicacion":"El horno Pasteur (o estufa Poupinel) emplea calor seco y se utiliza precisamente para material termorresistente que no se puede esterilizar por vapor, como productos que se estropean con la humedad (polvos de talco, vaselina, parafina) y elementos de vidrio de laboratorio (pipetas, buretas)."},{"id":23,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.3","subtema":"2.3. Calor seco: horno Pasteur (HP)","enunciado":"Un centro quiere reutilizar un horno Pasteur antiguo para esterilizar tijeras quirúrgicas muy finas y pinzas articuladas de precisión. ¿Qué inconveniente desaconseja esta práctica?","opciones":{"A":"La generación de abundantes residuos químicos corrosivos tras cada ciclo.","B":"La imposibilidad de alcanzar temperaturas superiores a los 100 °C en acero.","C":"El riesgo de alterar el material con filo y dañar las articulaciones metálicas.","D":"La exigencia de instalaciones complejas con sistemas de presión negativa."},"correcta":"C","explicacion":"Entre los inconvenientes del horno Pasteur figuran que puede alterar el material con filo y con articulaciones, que requiere temperaturas y tiempos elevados y que es difícil establecer controles de validez. Sus ventajas son que no requiere instalación compleja y no genera residuos (lo contrario de A y D)."},{"id":24,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.3","subtema":"2.3. Calor seco: horno Pasteur (HP)","enunciado":"Según la relación estandarizada entre temperatura y tiempo de exposición en el horno Pasteur, ¿cuánto tiempo se requiere si se programa el equipo a 170 °C?","opciones":{"A":"30 minutos de exposición continua en la cámara.","B":"60 minutos de exposición continua en la cámara.","C":"90 minutos de exposición continua en la cámara.","D":"120 minutos de exposición continua en la cámara."},"correcta":"B","explicacion":"La tabla temperatura-tiempo del horno Pasteur establece: 180 °C durante 30 minutos, 170 °C durante 60 minutos y 160 °C durante 2 horas (120 minutos). A menor temperatura se requiere mayor tiempo para alcanzar el efecto letal por oxidación."},{"id":25,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.3","subtema":"2.3. Calor seco: horno Pasteur (HP)","enunciado":"¿Por qué un ciclo en horno Pasteur a 160 °C necesita 2 horas para esterilizar, mientras que el vapor de agua logra esterilizar a temperaturas mucho menores y en menos tiempo?","opciones":{"A":"Porque el aire caliente coagula las proteínas más rápido que el vapor húmedo.","B":"Porque las estufas Poupinel carecen de sistemas de circulación de aire interno.","C":"Porque el vidrio de laboratorio absorbe casi toda la energía calorífica del aire.","D":"Porque el vapor acumula casi 15 veces más energía calorífica que el aire seco."},"correcta":"D","explicacion":"La capacidad calorífica del vapor de agua es muy superior: acumula mucha más energía en forma de calor que el aire (es casi 15 veces más calorífico), por lo que el aire seco necesita temperaturas mucho más elevadas y tiempos más prolongados para destruir los microorganismos por oxidación."},{"id":26,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.3","subtema":"2.3. Calor seco: horno Pasteur (HP)","enunciado":"¿Qué mecanismo de acción biológica produce la muerte de los microorganismos en el horno Pasteur y en qué rango de temperaturas puede operar esta cámara de acero inoxidable?","opciones":{"A":"Coagulación proteica mediante aire estático entre 121 °C y 140 °C.","B":"Oxidación celular mediante circulación de aire caliente entre 50 °C y 300 °C.","C":"Alteración del ADN por radiación térmica entre 30 °C y 100 °C.","D":"Fusión de lípidos por vapor húmedo circulante entre 100 °C y 180 °C."},"correcta":"B","explicacion":"El horno Pasteur provoca la muerte microbiana por oxidación al aplicar calor a través del aire. Son cámaras de acero inoxidable con sistemas de circulación de aire caliente capaces de generar calor seco entre 50 °C y 300 °C."},{"id":27,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.3","subtema":"2.3. Calor seco: horno Pasteur (HP)","enunciado":"Si en un servicio se dispone de un horno Pasteur y se decide esterilizar material a 180 °C, ¿qué duración mínima de exposición marca la tabla de referencia y qué tipo de contenedor rígido sería compatible?","opciones":{"A":"30 minutos utilizando un contenedor rígido no perforado.","B":"60 minutos utilizando un contenedor rígido perforado con válvulas.","C":"120 minutos utilizando un contenedor rígido perforado con filtros.","D":"30 minutos utilizando un contenedor rígido perforado sin filtros."},"correcta":"A","explicacion":"A 180 °C el tiempo de exposición mínimo en horno Pasteur es de 30 minutos (60 min corresponde a 170 °C y 120 min a 160 °C). Además, según el tema 4, los únicos contenedores rígidos compatibles con el horno Pasteur son los no perforados; los perforados (con válvulas, filtros o sin filtros) corresponden a vapor o sistemas químicos en frío."},{"id":28,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.3","subtema":"2.3. Calor seco: horno Pasteur (HP)","enunciado":"A pesar de encontrarse actualmente en desuso en la mayoría de los hospitales, ¿qué dos ventajas técnicas presenta el horno Pasteur frente a otros sistemas más complejos?","opciones":{"A":"Excelente capacidad de penetración en textiles y facilidad de validación química.","B":"Ciclos ultrarrápidos de 10 minutos y compatibilidad con material termosensible.","C":"Instalación sencilla sin requerimientos complejos y ausencia total de residuos.","D":"Menor consumo de energía eléctrica y preservación absoluta del filo quirúrgico."},"correcta":"C","explicacion":"El texto destaca como ventajas del horno Pasteur que no requiere una instalación compleja y que no genera residuos. Sin embargo, sus desventajas (alteración de filos y articulaciones, temperaturas y tiempos elevados, dificultad de control de validez) superan a las ventajas y explican su desuso."},{"id":29,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"En una unidad central de esterilización ingresa instrumental metálico quirúrgico y ropa textil resistente al calor. Si no existen contraindicaciones, ¿por qué se elige por defecto el autoclave de vapor de agua?","opciones":{"A":"Porque esteriliza a 50 °C sin necesidad de someter la cámara a presión positiva.","B":"Porque combina rapidez, gran penetración, nula toxicidad, fácil control y bajo coste.","C":"Porque permite almacenar indefinidamente el material sin ningún empaquetado previo.","D":"Porque actúa por oxidación lenta evitando la formación de humedad en las envolturas."},"correcta":"B","explicacion":"El autoclave de vapor es el mejor método de esterilización y el elegido por defecto mientras no haya contraindicaciones, gracias a su rapidez, elevada capacidad de penetración, nula toxicidad, facilidad de control y bajo coste. Funciona entre 121 °C y 140 °C con presión elevada, requiere empaquetado (salvo flash) y actúa por calor húmedo, no por oxidación."},{"id":30,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"Durante una avería en un autoclave de vapor, el sistema de extracción de aire falla y quedan bolsas de aire atrapadas en el interior de la cámara. ¿Qué consecuencia directa tiene este fallo sobre el proceso?","opciones":{"A":"El vapor se vuelve tóxico y deteriora permanentemente las juntas de silicona.","B":"Los paquetes textiles salen excesivamente húmedos aunque la temperatura sea correcta.","C":"Se acelera en exceso la coagulación de proteínas reduciendo el valor F a cero.","D":"Se forman burbujas de aire que impiden transmitir bien el calor."},"correcta":"D","explicacion":"Uno de los tres requisitos esenciales del autoclave es extraer todo el aire para que no se formen burbujas dentro de la cámara que impidan transmitir bien el calor del vapor saturado a toda la superficie del instrumental."},{"id":31,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"Un centro de tatuaje utiliza un autoclave que carece de bomba de vacío y evacua el aire por una válvula inferior al ser más pesado que el vapor. ¿Qué limitación presenta este equipo frente a uno de prevacío?","opciones":{"A":"No alcanza los 121 °C necesarios para destruir bacterias vegetativas comunes.","B":"Exige añadir óxido de etileno como gas portador en cada ciclo estándar.","C":"Resulta menos eficaz porque puede quedar aire retenido entre los paquetes.","D":"Impide realizar cualquier tipo de control físico o químico de la carga."},"correcta":"C","explicacion":"Se trata de un autoclave gravitacional, habitual en centros de tatuaje y belleza. Al no contar con extracción activa por bombas de vacío, puede quedar aire retenido entre los paquetes de instrumental, por lo que es relativamente poco eficaz frente al autoclave con ciclo de prevacío."},{"id":32,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"Al analizar la gráfica de presión frente al tiempo de un ciclo estándar de autoclave de vapor, se observa una fase en la que la presión desciende por debajo de 0 atm (valor negativo, punto 6 de la gráfica) tras eliminar el vapor. ¿A qué etapa corresponde?","opciones":{"A":"Al secado del material tras la fase de esterilización y eliminación del vapor.","B":"A los pulsos iniciales de vacío realizados antes de la inyección del vapor.","C":"A la meseta de esterilización donde se mantiene la presión y temperatura máximas.","D":"A la entrada final de aire filtrado para recuperar la presión atmosférica normal."},"correcta":"A","explicacion":"En la gráfica del ciclo estándar de autoclave con prevacío: 1 es preparación, 2 vacío en varios ciclos, 3 inyección de vapor, 4 esterilización (meseta superior), 5 eliminación del vapor, 6 secado (depresión por debajo de 0 atm) y 7 entrada de aire filtrado y recuperación de presión."},{"id":33,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"En quirófano cae al suelo un separador metálico único y sin envoltura que se necesita con urgencia inmediata. ¿Qué ciclo específico de autoclave de vapor a 135 °C puede emplearse y qué restricción fundamental tiene?","opciones":{"A":"El ciclo exprés de 30 minutos, válido incluso para material con lúmenes largos.","B":"El ciclo estándar de 60 minutos, diseñado para material suelto sin envasar.","C":"El ciclo de baja temperatura de 75 minutos, apto para uso inmediato sin secado.","D":"El ciclo flash de 10 minutos, sin fase de vacío y para utilización inmediata."},"correcta":"D","explicacion":"El ciclo flash dura 10 minutos a 135 °C y sirve para esterilizar urgentemente un instrumento quirúrgico sin envasar. Es fundamental recordar que no realiza vacíos y solo es válido para uso inmediato, ya que al no ir envasado no puede almacenarse."},{"id":34,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"Silvia necesita esterilizar con cierta urgencia un catéter venoso central termorresistente con puertos o lúmenes largos, empaquetado en una sola envoltura. ¿Por qué NO debe utilizar el ciclo exprés de 30 minutos?","opciones":{"A":"Porque el ciclo exprés opera a 121 °C y resulta insuficiente para metal o silicona.","B":"Porque el ciclo exprés solo admite material sin envasar para uso inmediato.","C":"Porque el ciclo exprés no se puede emplear para material poroso ni con lúmenes largos.","D":"Porque el ciclo exprés dura 75 minutos y retrasaría la intervención quirúrgica."},"correcta":"C","explicacion":"El ciclo exprés (30 minutos a 135 °C) es válido únicamente para material con una sola envoltura, pero está expresamente contraindicado para material poroso o con lúmenes largos, como los puertos o lúmenes de un catéter venoso central."},{"id":35,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"Tras una intervención neuroquirúrgica con sospecha de enfermedad por priones, el instrumental reutilizable resistente al calor pasa al autoclave de vapor. ¿Qué ciclo debe seleccionarse?","opciones":{"A":"Un ciclo largo de 75 minutos a 135 °C específico para destruir proteínas priónicas.","B":"Un ciclo estándar de 60 minutos a 135 °C repetido dos veces consecutivas.","C":"Un ciclo de baja temperatura de 75 minutos a 121 °C para no dañar el acero.","D":"Un ciclo exprés de 30 minutos a 135 °C utilizando doble bolsa mixta sellada."},"correcta":"A","explicacion":"El tratamiento para priones en autoclave de vapor es un ciclo largo de 75 minutos a 135 °C diseñado específicamente para lograr la destrucción de las proteínas priónicas. El ciclo de 75 minutos a 121 °C (C) corresponde al ciclo de cauchos a baja temperatura."},{"id":36,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"En una carga de autoclave compuesta por material de caucho sensible a los 135 °C, ¿qué parámetros de temperatura y duración corresponden al ciclo específico de baja temperatura?","opciones":{"A":"121 °C durante 30 minutos, igual que el ciclo exprés hospitalario.","B":"121 °C durante 75 minutos, la misma duración que el ciclo de priones.","C":"121 °C durante 60 minutos, la misma duración que el ciclo estándar.","D":"121 °C durante 10 minutos, la misma duración que el ciclo flash urgente."},"correcta":"B","explicacion":"Existen ciclos a baja temperatura (121 °C), como el ciclo de cauchos, que tiene la misma duración que el ciclo de priones: 75 minutos. El estándar (60 min), exprés (30 min) y flash (10 min) trabajan a 135 °C."},{"id":37,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"Para lograr un ambiente saturado de vapor sin mojar el instrumental y garantizar la seguridad frente a las altas presiones de trabajo, ¿qué medidas técnicas incorpora el autoclave?","opciones":{"A":"Cámaras de vidrio templado y extracción pasiva mediante filtros de carbón activo.","B":"Paredes delgadas de aluminio y llenado continuo de agua destilada hasta cubrir la carga.","C":"Cámara con grosor adecuado y válvulas de seguridad, más cantidad exacta de agua.","D":"Circulación forzada de aire seco caliente combinada con inyección de formaldehído."},"correcta":"C","explicacion":"Los tres requisitos del autoclave (soportar altas presiones, extraer todo el aire y lograr vapor saturado sin mojar el instrumental) se resuelven usando una cámara del grosor necesario dotada de válvulas de seguridad, introduciendo la cantidad exacta de agua y utilizando un sistema de extracción del aire."},{"id":38,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"En el diseño arquitectónico de la central, los autoclaves hospitalarios suelen disponer de dos puertas opuestas. ¿Qué finalidad organizativa cumple esta doble puerta?","opciones":{"A":"Cargar el material desde la zona limpia y descargarlo por la zona estéril.","B":"Recibir la carga desde la zona sucia y retirarla por el área de empaquetado.","C":"Permitir el acceso directo del personal técnico entre la zona sucia y la estéril.","D":"Facilitar la ventilación simultánea del aire exterior hacia la cámara durante el ciclo."},"correcta":"A","explicacion":"Los autoclaves de uso hospitalario suelen tener dos puertas: una en la zona (o sala) limpia para cargar el material que se va a esterilizar y otra en la zona (o sala) estéril para vaciar el material ya esterilizado, respetando así el flujo unidireccional."},{"id":39,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"¿A través de qué mecanismo molecular provoca la muerte de los microorganismos el calor húmedo del autoclave de vapor de agua?","opciones":{"A":"Por la ionización atómica y la ruptura directa del ADN celular.","B":"Por la oxidación progresiva de los componentes celulares en aire seco.","C":"Por la dilución osmótica de la pared bacteriana en baño ácido.","D":"Por la coagulación de las proteínas celulares y fusión de lípidos."},"correcta":"D","explicacion":"El vapor de agua entre 121 °C y 140 °C provoca la muerte de los microorganismos por coagulación de las proteínas celulares y fusión de los lípidos de membrana, siendo el calor el agente físico transmitido eficazmente por el vapor."},{"id":40,"temaId":"T2","tema":"2. Sistemas físicos de esterilización","subtemaId":"2.4","subtema":"2.4. Calor húmedo: autoclave de vapor","enunciado":"Al finalizar un ciclo estándar en autoclave de prevacío, ¿qué ocurre en la fase de postratamiento inmediatamente antes de poder abrir la puerta de descarga?","opciones":{"A":"Se aplica un pulso rápido de vapor saturado y se bloquea la válvula de drenaje.","B":"Se produce el secado y la entrada de aire filtrado recuperando la presión atmosférica.","C":"Se realiza la extracción inicial del aire mediante varios ciclos de bomba de vacío.","D":"Se mantiene la meseta de presión y temperatura constante durante 60 minutos exactos."},"correcta":"B","explicacion":"En un ciclo estándar, el pretratamiento incluye vacío e inyección de vapor; la esterilización mantiene presión y temperatura; y el postratamiento comprende el descenso de temperatura y eliminación del vapor (secado), seguido de la entrada de aire filtrado y la recuperación de la presión."},{"id":41,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.1","subtema":"3.1. Óxido de etileno (OE)","enunciado":"Un hospital dispone de un autoclave de vapor, un equipo de gas plasma y una cámara de óxido de etileno. Según la legislación y recomendaciones actuales, ¿en qué único supuesto debe recurrirse al óxido de etileno?","opciones":{"A":"Cuando el material no pueda ser esterilizado mediante ninguno de los otros métodos disponibles.","B":"Cuando se requiera acortar al máximo el tiempo de rotación de los endoscopios flexibles.","C":"Cuando se procesen paquetes textiles voluminosos de cirugía mayor en doble papel crepado.","D":"Cuando se desee evitar la formación de residuos tóxicos en instrumental óptico delicado."},"correcta":"A","explicacion":"Debido a su elevada peligrosidad y toxicidad, el óxido de etileno está en desuso y la legislación actual recomienda esterilizar con OE únicamente aquel material que no pueda esterilizarse por otros métodos (implantes, accesorios de anestesia, material óptico y eléctrico, termosensible o delicado)."},{"id":42,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.1","subtema":"3.1. Óxido de etileno (OE)","enunciado":"En una cámara de óxido de etileno se observa una pequeña fuga durante un día cálido en el que la sala supera los 30 °C. ¿Qué propiedades fisicoquímicas del OE incrementan gravemente el riesgo de accidente?","opciones":{"A":"Es más ligero que el aire, insoluble en agua y se solidifica a 10,5 °C.","B":"Es ininflamable por debajo de 50 °C, pero corroe al instante el acero inoxidable.","C":"Es más denso que el aire, inflamable por encima de 30 °C y altamente explosivo.","D":"Carece de toxicidad por inhalación aunque resulta irritante únicamente por contacto dérmico."},"correcta":"C","explicacion":"El óxido de etileno es un gas más denso que el aire (tiende a acumularse abajo), inodoro en condiciones ambientales (huele parecido al éter a partir de cierta concentración), soluble en agua, se licúa a 10,5 °C, es inflamable por encima de 30 °C y altamente explosivo. Además daña la salud tanto por contacto como por inhalación."},{"id":43,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.1","subtema":"3.1. Óxido de etileno (OE)","enunciado":"¿Por qué motivo el óxido de etileno no suele emplearse en estado puro dentro de los esterilizadores hospitalarios y qué sustancias se usan para reducir su peligro?","opciones":{"A":"Porque en estado puro pierde capacidad de penetración, mezclándose con vapor de agua.","B":"Porque es muy peligroso en estado puro, mezclándose con CFC, HCFC o CO₂.","C":"Porque en estado puro no atraviesa el papel crepado, mezclándose con formaldehído.","D":"Porque resulta sólido a temperatura ambiente, disolviéndose en ácido peracético."},"correcta":"B","explicacion":"En estado puro el OE es altamente peligroso (inflamable y explosivo), por lo que suele usarse mezclado con otros gases inertes o portadores como CFC (clorofluorocarbono), HCFC (hidroclorofluorocarbono) y CO₂ para reducir su peligrosidad."},{"id":44,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.1","subtema":"3.1. Óxido de etileno (OE)","enunciado":"Al consultar la etiqueta de seguridad con el diamante NFPA correspondiente al óxido de etileno (Azul: 3, Rojo: 4, Amarillo: 3), ¿qué indica el valor 4 en el rombo rojo?","opciones":{"A":"Que alcanza el grado máximo en la escala de reactividad ante impactos o aire.","B":"Que representa el nivel máximo en la escala de riesgo específico por radiación.","C":"Que presenta el nivel máximo de riesgo para la salud por inhalación directa.","D":"Que alcanza el grado máximo en la escala de inflamabilidad del producto químico."},"correcta":"D","explicacion":"En el diamante NFPA (graduado de 0 a 4, siendo 4 la mayor peligrosidad), el rojo representa la inflamabilidad, el azul el riesgo para la salud, el amarillo la reactividad y el blanco los peligros específicos. Un 4 en rojo indica peligrosidad máxima por inflamabilidad."},{"id":45,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.1","subtema":"3.1. Óxido de etileno (OE)","enunciado":"Un equipo quirúrgico solicita disponer en menos de dos horas de un instrumento óptico delicado que solo admite óxido de etileno. ¿Por qué resulta imposible satisfacer esa urgencia con este método?","opciones":{"A":"Porque los ciclos de OE oscilan entre 12 y 14 horas incluyendo la ventilación necesaria.","B":"Porque la fase de pretratamiento exige mantener el material 24 horas en inmersión fría.","C":"Porque tras cada ciclo hay que realizar cuatro aclarados manuales con agua filtrada.","D":"Porque el indicador biológico tarda habitualmente siete días en incubarse a 56 °C."},"correcta":"A","explicacion":"Uno de los graves inconvenientes del óxido de etileno es la larga duración de sus ciclos, que oscilan entre 12 y 14 horas incluyendo el periodo imprescindible de ventilación/aireación para eliminar el gas retenido en los paquetes."},{"id":46,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.1","subtema":"3.1. Óxido de etileno (OE)","enunciado":"A pesar de sus desventajas tóxicas y de duración, ¿cuál es la principal fortaleza técnica del óxido de etileno frente al gas plasma de peróxido de hidrógeno?","opciones":{"A":"La total ausencia de residuos tóxicos en el instrumental tras finalizar la exposición.","B":"La posibilidad de instalarse como equipo portátil en cualquier sala sin ventilación.","C":"La capacidad de esterilizar en frío en menos de 45 minutos sin empaquetado previo.","D":"La alta penetrabilidad en lúmenes estrechos y paquetes compatible con termosensibles."},"correcta":"D","explicacion":"Las grandes ventajas del OE son su alta penetrabilidad en lúmenes y paquetes y su compatibilidad con materiales termosensibles. De hecho, el GPPH no difunde tan bien como el OE a través de cavidades largas y estrechas."},{"id":47,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.1","subtema":"3.1. Óxido de etileno (OE)","enunciado":"¿Qué medidas de seguridad arquitectónicas y ambientales deben reunir obligatoriamente las instalaciones que albergan un esterilizador de óxido de etileno?","opciones":{"A":"Salas con presión positiva hacia pasillos y extracción compartida con la zona sucia.","B":"Salas estancas con bloqueo de aire estándar y filtración simple hacia el techo.","C":"Salas bien ventiladas, presión negativa y extracción dedicada con destrucción catalítica.","D":"Salas blindadas con paredes plomadas y extracción forzada conectada a la red general."},"correcta":"C","explicacion":"Las salas de OE deben estar aparte, bien ventiladas, con presión negativa (para que el gas no salga a áreas contiguas) y con extracción dedicada de aire dotada de filtros de destrucción catalítica del OE, además de sistemas de medición y advertencia automática y protocolos de emergencia."},{"id":48,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.1","subtema":"3.1. Óxido de etileno (OE)","enunciado":"¿Qué vigilancia específica debe aplicarse sobre los trabajadores de la UCE que operan con equipos de óxido de etileno según la normativa actual?","opciones":{"A":"Limitar exclusivamente el control a las pruebas biológicas semanales de la cámara.","B":"Efectuar periódicamente mediciones ambientales y personales, puntuales y acumuladas.","C":"Realizar únicamente reconocimientos visuales de irritación dérmica al cambio de turno.","D":"Utilizar dosímetros personales de radiación ionizante durante la carga de paquetes."},"correcta":"B","explicacion":"Debido a que el OE es irritante, neurotóxico, cancerígeno, mutagénico y peligroso para el aparato reproductor, la normativa actual exige efectuar periódicamente mediciones ambientales y personales para controlar la exposición del personal de la UCE, tanto puntual como acumulada."},{"id":49,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.1","subtema":"3.1. Óxido de etileno (OE)","enunciado":"En el desarrollo de un ciclo de esterilización por óxido de etileno, ¿qué tres subfases integran específicamente la etapa de pretratamiento?","opciones":{"A":"Llenado de agua filtrada, dilución química y mantenimiento de la presión negativa.","B":"Extracción del gas, entrada de aire filtrado y aireación prolongada de los paquetes.","C":"Elaboración del preplasma, difusión por la cámara y transformación electromagnética.","D":"Extracción de aire por vacío, acondicionamiento térmico-húmedo y carga del gas."},"correcta":"D","explicacion":"Las fases del ciclo de OE son: Pretratamiento (extracción del aire mediante bombas de vacío, acondicionamiento para alcanzar la humedad y temperatura deseadas, y carga del gas a concentración, presión y temperatura adecuadas), Esterilización (mantenimiento) y Postratamiento (extracción del gas, entrada de aire y aireación)."},{"id":50,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.1","subtema":"3.1. Óxido de etileno (OE)","enunciado":"Un envase procedente de fábrica o de la central lleva impreso el pictograma «STERILE | EO». ¿Qué indica respecto al método utilizado y qué precaución previa implica si se procesó en el centro?","opciones":{"A":"Fue esterilizado con óxido de etileno y requirió aireación para eliminar gas retenido.","B":"Fue esterilizado con gas plasma y recibió eliminación final mediante vapor saturado.","C":"Fue esterilizado con ácido peracético y debe utilizarse de inmediato sin almacenarse.","D":"Fue esterilizado en horno Pasteur y no puede abrirse en la zona estéril del hospital."},"correcta":"A","explicacion":"El símbolo «STERILE | EO» identifica el material esterilizado mediante óxido de etileno (como los catéteres mostrados en el documento). Su fase de postratamiento incluye obligatoriamente una aireación para eliminar el gas retenido en los paquetes antes de su uso seguro."},{"id":51,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.2","subtema":"3.2. Gas plasma de peróxido de hidrógeno (GPPH)","enunciado":"Una enfermera necesita esterilizar en frío un endoscopio cuyo límite térmico es de 55 °C y lo precisa empaquetado porque se utilizará dentro de hora y media. ¿Qué sistema debe seleccionar?","opciones":{"A":"El óxido de etileno, por esterilizar en frío y ofrecer aireación ultrarrápida.","B":"El ácido peracético, por trabajar a 55 °C y conservar paquetes cerrados.","C":"El gas plasma de peróxido de hidrógeno, por operar a 50 °C en ciclos rápidos.","D":"El vapor de formaldehído, por trabajar a 50 °C en ciclos de media hora."},"correcta":"C","explicacion":"Este corresponde al caso práctico 2 del documento: el GPPH trabaja a baja temperatura (50 °C), permite empaquetar el material para conservar la esterilidad (a diferencia del APA, que es sin empaquetar para uso inmediato) y tiene ciclos rápidos de 38 a 74 minutos (el OE tarda 12-14 h incluyendo aireación y el VFA tarda 5 h a 50 °C, con un mínimo de 2,5 h a 78 °C)."},{"id":52,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.2","subtema":"3.2. Gas plasma de peróxido de hidrógeno (GPPH)","enunciado":"Un técnico empaqueta una caja para gas plasma de peróxido de hidrógeno utilizando papel crepado de grado médico y envoltorio textil de algodón. ¿Por qué se invalidará o fallará este proceso?","opciones":{"A":"Porque el campo electromagnético funde el poliéster al superar los 120 °C.","B":"Porque el GPPH rechaza materiales absorbentes como el papel o la tela.","C":"Porque la celulosa pura bloquea la actuación de las bombas de vacío.","D":"Porque el papel crepado libera formaldehído al entrar en contacto con agua."},"correcta":"B","explicacion":"El GPPH es válido para casi todos los materiales termosensibles excepto los de material absorbente (papel o tela), ya que absorben el peróxido de hidrógeno e impiden que el ciclo alcance la concentración necesaria. Por ello requiere empaquetado especial sin celulosa, como Tyvek o polipropileno."},{"id":53,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.2","subtema":"3.2. Gas plasma de peróxido de hidrógeno (GPPH)","enunciado":"En el ámbito hospitalario, ¿cómo se genera el estado de plasma a partir del peróxido de hidrógeno gasificado y a qué temperatura aproximada se obtiene el agente esterilizante?","opciones":{"A":"Mediante calor intenso generado por resistencias eléctricas hasta alcanzar los 121 °C.","B":"Mediante la aplicación de un campo electromagnético, obteniéndose una temperatura de 50 °C.","C":"Mediante desintegración radiactiva de cobalto 60 manteniendo la cámara a 37 °C.","D":"Mediante pulsos de vapor saturado al 70% de humedad manteniendo los 78 °C."},"correcta":"B","explicacion":"Aunque el plasma (cuarto estado de la materia) puede obtenerse mediante calor o campo electromagnético, en el medio hospitalario se utiliza el campo electromagnético, lo que permite generar el agente esterilizante a baja temperatura (50 °C)."},{"id":54,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.2","subtema":"3.2. Gas plasma de peróxido de hidrógeno (GPPH)","enunciado":"Durante la fase propiamente dicha de esterilización en un ciclo normal de gas plasma de peróxido de hidrógeno, ¿qué secuencia de cuatro pasos se ejecuta dos veces consecutivas?","opciones":{"A":"Vacío inicial, elaboración de preplasma, extracción por filtros HEPA y aireación.","B":"Pulsos de vacío, inyección de vapor, exposición química y aclarado filtrado.","C":"Carga del gas, acondicionamiento húmedo, mantenimiento térmico y ventilación.","D":"Inyección del gas, difusión en la cámara, transformación en plasma y extracción."},"correcta":"D","explicacion":"En la tabla de fases del GPPH, la fase de esterilización consta de cuatro pasos que se repiten dos veces: inyección del gas de peróxido de hidrógeno, difusión del gas por la cámara, transformación del gas en plasma y extracción del plasma de la cámara."},{"id":55,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.2","subtema":"3.2. Gas plasma de peróxido de hidrógeno (GPPH)","enunciado":"¿Qué limitación de penetración presenta el GPPH frente al óxido de etileno cuando se procesan endoscopios con canales estrechos, y cómo se resuelve en la práctica?","opciones":{"A":"Difunde peor en cavidades largas y estrechas, requiriendo adaptadores y ciclos más largos.","B":"Penetra mal en envases de polipropileno, exigiendo envoltorios dobles de papel crepado.","C":"Pierde eficacia en ópticas metálicas, precisando elevar la cámara a 80 °C constantes.","D":"Se inactiva sobre cables flexibles, obligando a suprimir el vacío del pretratamiento."},"correcta":"A","explicacion":"El GPPH no difunde tan bien como el OE a través de cavidades largas y estrechas; sin embargo, mediante adaptadores específicos y ciclos ligeramente más largos resulta perfecto para endoscopios rígidos y flexibles, cámaras, cables de fibra óptica, baterías, lentes, sensores e instrumental de microcirugía."},{"id":56,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.2","subtema":"3.2. Gas plasma de peróxido de hidrógeno (GPPH)","enunciado":"Al comparar los requisitos de instalación del GPPH frente a otros gases químicos como el OE, ¿qué ventaja operativa ofrece la tecnología de plasma de peróxido de hidrógeno?","opciones":{"A":"Admite cualquier envoltura de celulosa pura económica disponible en la central.","B":"Su sencillez de instalación y nulos residuos permiten disponer de equipos portátiles.","C":"Elimina la necesidad de bombas de vacío y de filtros HEPA en la fase final.","D":"Permite introducir cargas húmedas procedentes directamente de las pilas de lavado."},"correcta":"B","explicacion":"El GPPH permite ciclos rápidos (entre 38 y 74 minutos), no deja residuos tóxicos (nulos residuos) y requiere una instalación tan sencilla que permite incluso equipos portátiles. Sí utiliza bombas de vacío en pretratamiento y filtros HEPA en postratamiento."},{"id":57,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.2","subtema":"3.2. Gas plasma de peróxido de hidrógeno (GPPH)","enunciado":"En la etapa de postratamiento de un esterilizador de gas plasma de peróxido de hidrógeno, ¿qué elemento garantiza la eliminación final del plasma antes de la aireación?","opciones":{"A":"Una válvula gravitacional inferior conectada al desagüe general de la central.","B":"Un circuito de cuatro aclarados sucesivos con agua destilada filtrada a 45 °C.","C":"Una unidad de destrucción catalítica térmica en sala con presión negativa.","D":"Un sistema de filtros HEPA de alta eficiencia previo a recuperar la presión."},"correcta":"D","explicacion":"El postratamiento del GPPH comprende dos pasos: la eliminación final del plasma con filtros HEPA (alta eficiencia) y la aireación para eliminar el gas y recuperar la presión. La destrucción catalítica corresponde al OE y los cuatro aclarados al APA."},{"id":58,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.2","subtema":"3.2. Gas plasma de peróxido de hidrógeno (GPPH)","enunciado":"¿Qué grupo de dispositivos médicos suele procesarse de forma idónea mediante gas plasma de peróxido de hidrógeno sin sufrir deterioro térmico ni corrosión?","opciones":{"A":"Polvos de talco, vaselina líquida, parafina y pipetas graduadas de laboratorio.","B":"Cámaras, cables de fibra óptica, baterías, lentes, sensores y microcirugía.","C":"Packs completos de cirugía mayor compuestos por sábanas y batas de algodón.","D":"Instrumental metálico pesado empaquetado en bolsas de papel 100% celulosa."},"correcta":"B","explicacion":"El GPPH es idóneo para endoscopios rígidos y flexibles, cámaras, cables de fibra óptica, baterías, lentes, sensores e instrumental de microcirugía y quirúrgico en general. Los polvos/aceites van a horno Pasteur (A) y el textil o papel son absorbentes incompatibles (C y D)."},{"id":59,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.3","subtema":"3.3. Vapor de formaldehído (VFA)","enunciado":"¿Cuáles son las condiciones fisicoquímicas características bajo las cuales actúa el método de esterilización por vapor de formaldehído (VFA)?","opciones":{"A":"Formaldehído al 2% vaporizado a presión subatmosférica con un 70% de humedad.","B":"Formaldehído al 20% líquido en inmersión directa a presión atmosférica normal.","C":"Formaldehído puro en estado sólido sublimado en ambiente totalmente seco.","D":"Formaldehído al 5% mezclado con CFC a alta presión positiva y 135 °C."},"correcta":"A","explicacion":"El VFA se basa en la acción del formaldehído al 2% vaporizado a presión subatmosférica en un entorno de alta humedad (70%) y baja temperatura, dentro de cámaras de acero inoxidable o aluminio."},{"id":60,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.3","subtema":"3.3. Vapor de formaldehído (VFA)","enunciado":"En una central se programa un ciclo de vapor de formaldehído a 60 °C para esterilizar material plástico y equipos eléctricos termosensibles. ¿Cuál será el tiempo de esterilización y la duración total del ciclo?","opciones":{"A":"120 minutos de esterilización y 5 horas de tiempo total.","B":"15 minutos de esterilización y 2,5 horas de tiempo total.","C":"60 minutos de esterilización y 3 horas de tiempo total.","D":"30 minutos de esterilización y 1,5 horas de tiempo total."},"correcta":"C","explicacion":"Según la tabla de ciclos del VFA: a 50 °C son 120 min de esterilización (5 horas totales); a 60 °C son 60 min de esterilización (3 horas totales); y a 78 °C son 15 min de esterilización (2,5 horas totales)."},{"id":61,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.3","subtema":"3.3. Vapor de formaldehído (VFA)","enunciado":"¿Qué dos inconvenientes principales limitan la adopción generalizada del vapor de formaldehído frente a otros sistemas de esterilización en frío como el GPPH?","opciones":{"A":"Su incompatibilidad con los envoltorios de papel crepado y su alto coste de instalación.","B":"La larga duración del proceso completo y la toxicidad propia del formaldehído.","C":"La imposibilidad de empaquetar los equipos y la necesidad de uso inmediato.","D":"La corrosión inmediata de las cámaras de aluminio y la ausencia de controles biológicos."},"correcta":"B","explicacion":"Aunque es un método en frío que no requiere instalaciones complejas, el VFA presenta dos inconvenientes señalados en el documento: la larga duración del proceso completo (entre 2,5 y 5 horas) y la toxicidad del formaldehído. Además, sí es compatible con papel crepado, tejido sin tejer, bolsas de papel y bolsas mixtas."},{"id":62,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.3","subtema":"3.3. Vapor de formaldehído (VFA)","enunciado":"Al analizar los tiempos totales de los tres ciclos de vapor de formaldehído (50 °C, 60 °C y 78 °C), ¿qué opción ofrece el menor tiempo de esterilización y el ciclo global más corto?","opciones":{"A":"El ciclo a 50 °C, con 15 minutos de esterilización y 3 horas totales.","B":"El ciclo a 60 °C, con 30 minutos de esterilización y 2 horas totales.","C":"El ciclo a 50 °C, con 60 minutos de esterilización y 2,5 horas totales.","D":"El ciclo a 78 °C, con 15 minutos de esterilización y 2,5 horas totales."},"correcta":"D","explicacion":"Al aumentar la temperatura de trabajo en VFA se acorta el tiempo necesario: a 78 °C el tiempo de esterilización se reduce a 15 minutos y el tiempo total del proceso a 2,5 horas (frente a 3 h a 60 °C y 5 h a 50 °C)."},{"id":63,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.3","subtema":"3.3. Vapor de formaldehído (VFA)","enunciado":"Durante la fase de pretratamiento de un ciclo normal de vapor de formaldehído, ¿qué operaciones tienen lugar antes de la exposición al agente químico?","opciones":{"A":"Inyección directa de aire caliente seco hasta superar la presión atmosférica.","B":"Formación de un preplasma mediante campo electromagnético sin humedad.","C":"Extracción de aire por bombas de vacío, pulsos de vacío e inyección de vapor.","D":"Cuatro aclarados sucesivos con agua filtrada por membrana de 0,2 micrómetros."},"correcta":"C","explicacion":"El pretratamiento en VFA consiste en la extracción del aire mediante bombas de vacío y la realización de pulsos de vacío e inyección de vapor (para alcanzar el 70% de humedad requerido). Después viene la esterilización (exposición y eliminación/secado) y el postratamiento (aireación)."},{"id":64,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.3","subtema":"3.3. Vapor de formaldehído (VFA)","enunciado":"Si se compara la compatibilidad de materiales absorbentes (como papel crepado o bolsas de papel) entre el vapor de formaldehído y el gas plasma de peróxido de hidrógeno, ¿qué afirmación es correcta?","opciones":{"A":"El VFA admite envoltorios de papel y el GPPH los rechaza.","B":"Ninguno de los dos admite bolsas mixtas ni tejido sin tejer.","C":"El GPPH admite papel crepado y el VFA exige solo Tyvek.","D":"Ambos métodos requieren contenedores rígidos no perforados sin celulosa."},"correcta":"A","explicacion":"Según las tablas de compatibilidad y el texto, el VFA sí es compatible con tejido sin tejer, papel crepado, bolsas de papel y bolsas mixtas, mientras que el GPPH no es válido para materiales absorbentes como el papel o la tela (utilizando polipropileno o Tyvek)."},{"id":65,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.4","subtema":"3.4. Ácido peracético (APA)","enunciado":"Tras finalizar una colonoscopia, un servicio planea esterilizar el endoscopio flexible con ácido peracético y guardarlo empaquetado en la zona estéril para la semana siguiente. ¿Por qué no es viable este plan?","opciones":{"A":"Porque las bolsas mixtas se despegan con el líquido durante el almacenamiento prolongado.","B":"Porque las bandejas cerradas pierden estanqueidad al superar las 24 horas en estantería.","C":"Porque se procesa sin empaquetar en la cubeta y se destina a uso inmediato.","D":"Porque el aclarado final humedece el envoltorio de celulosa impidiendo su guarda estéril."},"correcta":"C","explicacion":"El ácido peracético es un método rápido y seguro para instrumental sumergible, pero tiene el inconveniente de que no se puede almacenar al haber sido esterilizado sin empaquetar (en contenedor especial de la máquina), por lo que está diseñado para uso inmediato."},{"id":66,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.4","subtema":"3.4. Ácido peracético (APA)","enunciado":"¿Cómo logra el equipo automático de ácido peracético (STERIS SYSTEM 1®) esterilizar de forma eficaz el interior de los canales internos de un endoscopio sumergible?","opciones":{"A":"Haciendo fluir el ácido peracético por los lúmenes mediante bandejas específicas.","B":"Generando un vacío profundo que vaporiza el líquido dentro de bolsas mixtas.","C":"Aplicando ondas electromagnéticas que transforman la solución en gas plasma.","D":"Manteniendo el equipo cerrado en reposo durante 12 horas a 78 °C constantes."},"correcta":"A","explicacion":"Es un proceso automático completamente monitorizado en el que solo hay que introducir el instrumental y cerrar la máquina; el aparato hace fluir activamente el ácido peracético (STERIS 20™) por los lúmenes de los endoscopios ayudado de bandejas específicas para cada tipo de instrumental."},{"id":67,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.4","subtema":"3.4. Ácido peracético (APA)","enunciado":"Durante un ciclo estándar con ácido peracético, ¿qué temperatura de proceso, duración aproximada total y tiempo de meseta de esterilización se aplican?","opciones":{"A":"37 °C, 60 minutos totales y 30 minutos de meseta de exposición.","B":"50 °C, 74 minutos totales y 20 minutos de meseta de exposición.","C":"60 °C, 180 minutos totales y 60 minutos de meseta de exposición.","D":"55 °C, 30 minutos totales y 12 minutos de meseta de esterilización."},"correcta":"D","explicacion":"El proceso de esterilización por inmersión en frío con ácido peracético se realiza a 55 °C y dura aproximadamente 30 minutos en total, con una meseta de esterilización de 12 minutos."},{"id":68,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.4","subtema":"3.4. Ácido peracético (APA)","enunciado":"En la etapa de postratamiento del proceso con ácido peracético, ¿cómo se eliminan por completo los restos del agente químico del instrumental antes de su uso?","opciones":{"A":"Mediante aireación forzada a través de filtros HEPA durante dos horas continuas.","B":"Mediante cuatro aclarados con agua filtrada a 0,2 μm entre 43 y 46 °C.","C":"Mediante secado por vacío negativo en autoclave gravitacional a unos 121 °C.","D":"Mediante extracción catalítica dedicada en sala aislada con presión negativa continua."},"correcta":"B","explicacion":"El postratamiento del APA consiste en cuatro aclarados sucesivos utilizando agua filtrada (0,2 μm, equivalente a 0,0002 mm) a una temperatura entre 43 y 46 °C, garantizando el arrastre seguro de los restos químicos."},{"id":69,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.4","subtema":"3.4. Ácido peracético (APA)","enunciado":"Un centro dispone de un gastroscopio, un artroscopio, un paquete de gasas textiles y un lote de polvos de talco. ¿Cuál de estos elementos puede procesarse de manera adecuada con ácido peracético?","opciones":{"A":"El gastroscopio y el artroscopio, al ser endoscopios sumergibles compatibles.","B":"El paquete de gasas textiles, al poder envasarse en bolsas de papel grado médico.","C":"Los polvos de talco, al resistir perfectamente los cuatro aclarados con agua.","D":"Las gasas textiles y los polvos, al facilitar la inmersión fría del agente."},"correcta":"A","explicacion":"El APA se emplea especialmente para endoscopios rígidos (como el artroscopio o laparoscopio) o flexibles (como el gastroscopio o colonoscopio), lentes, cámaras, cables, sistemas de anestesia y dispositivos de microcirugía, siempre que sean sumergibles. Nunca se usa para textiles ni polvos."},{"id":70,"temaId":"T3","tema":"3. Sistemas químicos de esterilización","subtemaId":"3.4","subtema":"3.4. Ácido peracético (APA)","enunciado":"Si se compara la clasificación clínica de los endoscopios según su vía de entrada en el organismo, ¿qué par corresponde respectivamente a un endoscopio flexible y a uno rígido?","opciones":{"A":"Laparoscopio (por abertura natural) y colonoscopio (por incisión quirúrgica).","B":"Artroscopio (por vía oral) y gastroscopio (por punción articular).","C":"Colonoscopio (flexible por abertura natural) y laparoscopio (rígido por incisión).","D":"Gastroscopio (rígido por incisión) y artroscopio (flexible por uretra)."},"correcta":"C","explicacion":"Según el cuadro sobre endoscopios, los que aprovechan aberturas existentes (boca, ano, uretra) suelen ser flexibles, como el gastroscopio (estómago) o el colonoscopio (colon); los que se introducen a través de incisiones suelen ser rígidos, como el laparoscopio (cavidad abdominal) o el artroscopio (articulación)."},{"id":71,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"Un proveedor ofrece un material de empaquetado con poros de 0,5 μm argumentando que facilita mucho el paso del vapor. ¿Por qué debe rechazarse este material en la central?","opciones":{"A":"Porque el tamaño máximo de poro permitido es 0,1 μm para frenar gérmenes y humedad.","B":"Porque cualquier poro inferior a 1 μm impide la circulación del óxido de etileno.","C":"Porque la norma exige poros mayores de 2 μm para garantizar el secado final.","D":"Porque los poros menores de 0,5 μm anulan la transparencia de la cara plástica."},"correcta":"A","explicacion":"El material de empaquetado debe ser permeable al agente esterilizante pero impermeable a cualquier otra sustancia; para impedir la entrada de microorganismos y humedad tras el ciclo, debe tener poros menores de 0,1 μm (0,5 μm sería demasiado grande y comprometería la barrera biológica)."},{"id":72,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"Una bolsa mixta destinada al autoclave de vapor presenta dos caras claramente diferenciadas. ¿Qué función específica cumple cada una de ellas?","opciones":{"A":"La opaca de polietileno sella por calor y la transparente absorbe la humedad residual.","B":"La opaca de celulosa permite imprimir y controlar, y la transparente deja ver el interior.","C":"La delantera de celulosa impide la humedad y la trasera metálica sella al vacío.","D":"La transparente deja pasar el vapor saturado y la opaca bloquea la entrada del gas."},"correcta":"B","explicacion":"La bolsa mixta tiene una parte trasera opaca de celulosa de grado médico (que permite imprimir información, el paso del agente y colocar un control químico) y una parte delantera transparente (film de doble capa poliéster-polipropileno) que permite ver el contenido sin abrir la bolsa."},{"id":73,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"Un TCAE intenta utilizar rollos de bolsa de Tyvek® para envasar instrumental destinado a un ciclo estándar de autoclave de vapor a 135 °C. ¿Qué sucederá con el envase durante el proceso?","opciones":{"A":"Resistirá los 135 °C sin dañarse por su doble capa de celulosa pura.","B":"Bloqueará la salida del aire en el prevacío por su elevada impermeabilidad.","C":"Se deteriorará al superar los 100 °C por su composición en polietileno.","D":"Virará su indicador químico al rojo por acción directa del vapor saturado."},"correcta":"C","explicacion":"El Tyvek® (compuesto por polietileno) se deteriora por encima de los 100 °C y es muy caro, por lo que no puede utilizarse en autoclave de vapor ni en horno Pasteur; su uso característico se reserva para el gas plasma de peróxido de hidrógeno (GPPH), que trabaja a 50 °C."},{"id":74,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"En la zona limpia se prepara una bandeja quirúrgica en un contenedor metálico perforado que carece tanto de filtros como de válvulas automáticas. ¿Qué paso adicional es imprescindible para garantizar su esterilidad?","opciones":{"A":"Empaquetar el contenedor completo en papel crepado antes de introducirlo al ciclo.","B":"Colocar el contenedor directamente en el horno Pasteur a 180 °C durante media hora.","C":"Sellar externamente todas las perforaciones con cinta adhesiva de polietileno.","D":"Colocar filtros sintéticos adhesivos sobre la tapa antes de iniciar el ciclo."},"correcta":"A","explicacion":"Según la tabla de tipos de contenedores perforados, los contenedores perforados sin filtros ni sistemas automáticos deben empaquetarse externamente en papel crepado para garantizar la estanqueidad microbiológica tras la esterilización."},{"id":75,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"Un contenedor rígido perforado cuenta con válvulas automáticas en lugar de filtros intercambiables. ¿En qué tipo de esterilizador es exclusivamente compatible según la tabla resumen del tema?","opciones":{"A":"En cámaras de óxido de etileno con aireación de doce horas.","B":"En autoclaves de vapor con ciclos de prevacío.","C":"En hornos Pasteur por encima de los 180 °C.","D":"En esterilizadores de gas plasma con filtros HEPA."},"correcta":"B","explicacion":"La tabla de compatibilidad indica que los contenedores perforados con válvulas se usan para vapor únicamente en autoclaves con ciclos de prevacío (las válvulas se abren a la temperatura de los autoclaves de vapor). Los de horno Pasteur son no perforados, y para GPPH/OE/VFA se emplean contenedores perforados con filtros."},{"id":76,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"Un hospital compara los dos tipos de filtros intercambiables disponibles para sus contenedores perforados. ¿En qué se diferencian los filtros desechables de los semipermanentes?","opciones":{"A":"Los desechables son de silicona lavable y los semipermanentes de aluminio perforado.","B":"Los desechables soportan varios ciclos y los semipermanentes se tiran en cada carga.","C":"Los desechables son de polipropileno rígido y los semipermanentes de tela de algodón.","D":"Los desechables son de papel para un ciclo y los semipermanentes sintéticos para varios."},"correcta":"D","explicacion":"Los filtros intercambiables pueden ser desechables (hechos de papel de grado médico y válidos para un único ciclo) o semipermanentes (fabricados con material sintético, que soportan un número determinado de usos)."},{"id":77,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"Algunos contenedores automáticos emplean sistemas de «paso tortuoso de Pasteur» para mantener la esterilidad. ¿En qué principio físico-biológico se basa este mecanismo?","opciones":{"A":"En válvulas electromagnéticas conectadas al ordenador central de la UCE.","B":"En conductos laberínticos que impiden el paso de microbios pese al contacto aéreo.","C":"En membranas de celulosa pura impregnadas en ácido peracético residual.","D":"En juntas de vacío herméticas que mantienen presión negativa tras abrir la puerta."},"correcta":"B","explicacion":"El paso tortuoso se basa en los matraces de cuello alargado y curvado de Pasteur: al crear un recorrido en «laberinto», los microorganismos no pueden atravesarlo y se mantiene la esterilidad del interior aun estando en contacto con el aire."},{"id":78,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"Al evaluar la calidad del papel de grado médico (100% celulosa), se revisan tres grupos de factores: físicos, químicos y biológicos. ¿A qué se refieren concretamente los factores químicos?","opciones":{"A":"A la capacidad del papel para bloquear la entrada de bacterias tras el ciclo.","B":"A la resistencia mecánica frente a desgarros durante el transporte hospitalario.","C":"A la ausencia de toxicidad y la tolerancia frente a los agentes esterilizantes.","D":"Al gramaje mínimo exigido para envolver paquetes textiles de cirugía mayor."},"correcta":"C","explicacion":"Los factores de calidad del papel de grado médico son: físicos (resistencia a la manipulación), químicos (relacionados con su toxicidad y tolerancia a los agentes esterilizantes) y biológicos (capacidad de barrera biológica efectiva)."},{"id":79,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"Al elegir entre bolsas de tejido sin tejer, papel crepado o polipropileno, ¿cuál de los tres materiales combina su composición sintética pura con compatibilidad para vapor, OE y GPPH?","opciones":{"A":"El polipropileno, por estar libre de celulosa y resistir estos tres sistemas.","B":"El papel crepado, por estar formado de poliéster impermeable al peróxido.","C":"El tejido sin tejer, por carecer de fibras vegetales absorbentes en su trama.","D":"El papel crepado, por combinar polipropileno puro con recubrimiento plástico sellable."},"correcta":"A","explicacion":"Según la tabla de bolsas de empaquetado: el tejido sin tejer (celulosa y poliéster) y el papel crepado (celulosa pura) se usan para vapor, OE y VFA; mientras que el polipropileno (100% polipropileno, sin celulosa) es compatible con vapor, OE y GPPH."},{"id":80,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"Para envolver bandejas de gran tamaño o paquetes textiles mediante pliegos grandes de papel de empaquetado que carecen de cierre propio, ¿cómo debe realizarse el envoltorio?","opciones":{"A":"Aplicando un único pliego simple cerrado con grapas metálicas inoxidables.","B":"Dejando una cara totalmente abierta para facilitar la entrada del vapor saturado.","C":"Introduciendo el pliego suelto dentro de un contenedor rígido no perforado.","D":"Realizando un doble envoltorio y precintando el exterior con cinta adhesiva."},"correcta":"D","explicacion":"Los papeles de empaquetado son pliegos grandes usados para bandejas, cestas o paquetes textiles; al carecer de sistema de cierre propio, se realiza un doble envoltorio y se precinta externamente con cinta adhesiva (con control químico e1)."},{"id":81,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"¿Qué característica constructiva distingue a una bolsa de papel de grado médico y cuál es su indicación preferente en la central?","opciones":{"A":"Lleva film plástico transparente delante y se reserva para cables de fibra óptica.","B":"Es de polietileno doble y se utiliza únicamente en cámaras de gas plasma.","C":"Es 100% celulosa con un lado adhesivo termosellable, usada sobre todo en textil.","D":"Carece de cierre térmico y se emplea de forma exclusiva en baños líquidos fríos."},"correcta":"C","explicacion":"La bolsa de papel está formada completamente por celulosa de grado médico, tiene un solo lado abierto con adhesivo para termosellar una vez llena y se usa preferentemente para material textil en autoclaves de vapor y óxido de etileno (también compatible con VFA)."},{"id":82,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.1","subtema":"4.1. Tipos de empaquetado","enunciado":"¿Cuál de los siguientes materiales admite todos los sistemas gaseosos/vapor hospitalarios principales EXCEPTO el gas plasma de peróxido de hidrógeno?","opciones":{"A":"La bolsa mixta de celulosa grado médico y poliéster-polipropileno.","B":"El contenedor rígido especial exclusivo para inmersión en frío.","C":"El rollo de polietileno Tyvek® sellado mediante termoselladora.","D":"El contenedor rígido no perforado de acero inoxidable macizo."},"correcta":"A","explicacion":"La bolsa mixta es válida para vapor, OE y VFA, pero no para GPPH porque su cara trasera es de celulosa (material absorbente). El Tyvek® sí es para GPPH, el contenedor no perforado es solo para HP y el contenedor especial APA es solo para ácido peracético."},{"id":83,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Al preparar un pack quirúrgico de material textil en el área de empaquetado, ¿qué dimensión máxima no debe superarse nunca para garantizar una esterilización eficaz?","opciones":{"A":"40 × 40 × 60 centímetros de volumen exterior total.","B":"20 × 20 × 40 centímetros de volumen exterior total.","C":"50 × 50 × 70 centímetros de volumen exterior total.","D":"30 × 30 × 50 centímetros de volumen exterior total."},"correcta":"D","explicacion":"El documento establece que, cualquiera que sea la composición del paquete o pack quirúrgico textil, el paquete no debe superar las medidas de 30 × 30 × 50 cm para permitir la adecuada penetración del agente esterilizante y el secado."},{"id":84,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"En relación con el concepto de «armado del paquete» y el principio de funcionalidad en el doblado textil, ¿qué orden debe seguirse al colocar los elementos dentro del pack?","opciones":{"A":"Ordenarlos alfabéticamente según el listado administrativo de la lavandería.","B":"Colocarlos en función de su uso según el orden de utilización.","C":"Situar las piezas más pesadas arriba para compactar la tela durante el vacío.","D":"Plegar todas las prendas por el derecho externo dejando las cintas hacia fuera."},"correcta":"B","explicacion":"Armar un paquete consiste en colocar los elementos que lo forman siguiendo un principio de funcionalidad, es decir, en función de su uso (en el orden en que se van a utilizar una vez abierto el paquete, sin necesidad de manipular ni contaminar las piezas)."},{"id":85,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Al realizar la técnica de doblado de una bata quirúrgica sobre una superficie rígida, ¿cómo se pliegan la prenda y sus mangas, y qué parte debe quedar finalmente visible arriba?","opciones":{"A":"Se pliega del derecho incluidas las mangas, quedando visible la parte inferior trasera.","B":"Se enrolla en espiral desde el cuello, quedando visibles los lazos exteriores.","C":"Se dobla en cuatro partes por el lado exterior, quedando oculto el cuello delantero.","D":"Se pliega del revés salvo las mangas, quedando visible el cuello delantero arriba."},"correcta":"D","explicacion":"En el protocolo de doblado de la bata quirúrgica, la bata se estira con el lado exterior hacia arriba y se pliega del revés salvo las mangas (dejando lazos y cintas por dentro para evitar contaminación). Tras doblarla en tres partes, queda visible el cuello delantero en la parte superior para facilitar su colocación aséptica."},{"id":86,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Antes de iniciar cualquiera de las técnicas de doblado o preparación de paquetes y contenedores en la zona limpia, y también al finalizarlas, ¿qué pasos comunes exige el protocolo?","opciones":{"A":"Preparar la mesa y ponerse guantes antes; etiquetar, desinfectar guantes y archivar al final.","B":"Lavarse las manos sin guantes antes; recoger el equipo, aplicar lejía y firmar al final.","C":"Preparar material y lavarse con guantes antes; recoger, quitar guantes, lavar y registrar al final.","D":"Colocar el control químico y lavar antes; sellar la bolsa, guardar guantes y limpiar al final."},"correcta":"C","explicacion":"El cuadro «Pasos comunes para todas las técnicas» indica: antes de iniciar el protocolo, 1) preparar el material y 2) lavarse las manos y ponerse los guantes; al finalizar, 1) recoger el material, 2) quitarse los guantes y lavarse las manos y 3) registrar la técnica realizada."},{"id":87,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Un alumno realiza el doblado de un paño fenestrado. Tras estirarlo sobre la superficie rígida, ¿en qué orden ejecuta los dobleces y dónde debe quedar situada la fenestra al darle la vuelta?","opciones":{"A":"Dobla primero los laterales y luego hacia abajo; la fenestra queda en un extremo.","B":"Dobla abajo tapando fenestra, arriba igual y extremos al centro; queda centrada.","C":"Dobla por la mitad del lado ancho y luego los extremos; fenestra en un lateral.","D":"Enrolla desde la parte superior sin tapar la abertura; fenestra en el borde inferior."},"correcta":"B","explicacion":"En la Técnica 3 (doblado de un paño fenestrado): 1) se estira en superficie rígida; 2) se dobla hacia abajo tapando la fenestra; 3) se dobla hacia arriba en la misma proporción; 4) se doblan los dos extremos hacia la mitad; 5) al girar y darle la vuelta, la fenestra queda en el centro. (La opción C describe la sábana fenestrada)."},{"id":88,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Al doblar una sábana fenestrada según el protocolo de la Técnica 4, ¿en qué posición final quedan los dobleces laterales previos y la abertura (fenestra)?","opciones":{"A":"Los dobleces quedan en la parte exterior y la fenestra situada en un lateral.","B":"Los dobleces quedan ocultos en el interior y la fenestra exactamente en el centro.","C":"Los dobleces se pliegan en diagonal y la fenestra queda tapada por los picos.","D":"La sábana queda apaisada y la fenestra abierta sobre la cara superior externa."},"correcta":"A","explicacion":"En el doblado de la sábana fenestrada, primero se dobla por la mitad por el lado más ancho de la fenestra, luego se doblan los lados izquierdo y derecho hasta el inicio de la fenestra, y finalmente se dobla dejando los dobleces anteriores en la parte exterior y la fenestra en un lateral."},{"id":89,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Cuando se prepara un paquete textil grande con dos pliegos de papel crepado o dos sábanas, se distingue entre envoltura «doble secuencial» y «doble simultánea». ¿Qué diferencia ambos procedimientos?","opciones":{"A":"En la secuencial se usa cinta adhesiva y en la simultánea termoselladora eléctrica.","B":"En la secuencial se forma un sobre y en la simultánea siempre dobleces paralelos.","C":"La secuencial incluye control i5 y la simultánea prescinde de control interno.","D":"La secuencial aplica dos capas seguidas y la simultánea ambas juntas."},"correcta":"D","explicacion":"Cuando se forman paquetes grandes con pliegos de papel o sábanas se hacen envolturas dobles, bien una vez detrás de otra (doble secuencial) o bien en dos pliegos a la vez (doble simultánea). A su vez, cualquiera de ellas puede realizarse en forma de sobre o en dobleces paralelos."},{"id":90,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"En el protocolo estándar de preparación de un paquete textil quirúrgico para vapor (Técnica 5), ¿qué controles químicos deben incorporarse y en qué ubicación exacta?","opciones":{"A":"Un control externo e1 en el centro de las telas y un control s2 en la cinta.","B":"Un control interno i4 o i5 dentro del paquete y cinta engomada con control e1.","C":"Un control biológico semanal dentro y un indicador i3 adherido por fuera.","D":"Dos controles i6 simultáneos en el exterior sin incluir control en el centro."},"correcta":"B","explicacion":"La Técnica 5 especifica como materiales: textil, dos pliegos de papel crepado, control químico interno i4 o i5 (colocado en el interior antes de cerrar el paquete) y cinta engomada con control químico externo e1 para precintar el paquete cerrado."},{"id":91,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Durante la preparación de un contenedor quirúrgico para vapor (Técnica 6), un técnico comete el error de colocar el instrumental de memoria y sin ordenar. ¿Cómo debe procederse correctamente?","opciones":{"A":"Seguir la lista estandarizada, unir piezas iguales y proteger las puntas punzantes.","B":"Colocar el material pesado encima del delicado en un cestillo sin esterilla alguna.","C":"Introducir las piezas abiertas de forma aleatoria para que circule mejor el vapor.","D":"Omitir la lista escrita cuando el contenedor lleva etiqueta externa identificativa."},"correcta":"A","explicacion":"Al preparar un contenedor quirúrgico se debe: colocar en el cestillo su esterilla de silicona o papel crepado; seleccionar el instrumental siguiendo el listado estandarizado de la técnica elegida; disponer las piezas en orden adecuado uniendo entre sí las iguales y protegiendo las puntas de las punzantes; colocar control i4 o i5; colocar filtros, cerrar, precintar (e1) y rellenar etiqueta y documento."},{"id":92,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Al preparar un pack estándar de cirugía mayor, ¿qué conjunto de prendas textiles corresponde exactamente a la composición de referencia descrita en el documento?","opciones":{"A":"4 batas de cirujano, 2 campos sencillos, 2 sábanas fenestradas y 1 sábana de pie.","B":"2 batas de instrumentista, 6 campos sencillos, 1 paño fenestrado y 2 cubiertas.","C":"3 batas de cirujano, 1 de instrumentista, 4 campos, 1 cubierta riñón y 3 sábanas.","D":"1 bata de cirujano, 3 de instrumentista, 4 campos fenestrados y 1 sábana superior."},"correcta":"C","explicacion":"El cuadro «Pack de cirugía mayor» detalla: 3 batas quirúrgicas de cirujano, 1 bata quirúrgica de instrumentista, 4 campos sencillos, 1 cubierta para mesa de riñón, 1 sábana fenestrada, 1 sábana superior y 1 sábana de pie (es decir, 3 sábanas en total)."},{"id":93,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Jorge es nuevo en la central y debe preparar unas tijeras sueltas en bolsa mixta para autoclave de vapor (Técnica 7). ¿Qué detalles técnicos debe respetar al cortar y sellar el primer extremo?","opciones":{"A":"Ajustar la bolsa al máximo al metal y sellar justo al ras del borde cortado.","B":"Dejar espacio holgado suficiente para el sellado y un margen de 3 o 4 cm tras sellar.","C":"Sellar ambos extremos primero y hacer una abertura lateral para meter la tijera.","D":"Envolver la tijera previamente en tela húmeda y dejar 10 cm libres sin sellado."},"correcta":"B","explicacion":"En la Técnica 7 (material suelto en bolsa mixta): se corta un trozo de bolsa mixta holgado y con sobrante suficiente para el sellado, se sella uno de los extremos dejando 3 o 4 cm de margen (para facilitar el abrefácil sin contaminar al abrir), se introduce el instrumento protegido adecuadamente y un control químico i4 o i5, se sella el otro extremo y se identifica."},{"id":94,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Cuando en la central se prepara material suelto que no pertenece a un pack ni a un contenedor, ¿cómo debe disponerse según su naturaleza?","opciones":{"A":"Los textiles enrollados, los tubos doblados en ángulo agudo y el metal al vacío.","B":"Todo el material suelto debe mezclarse dentro de una única bolsa de papel grande.","C":"Los tubos deben cerrarse con pinzas hemostáticas para impedir la entrada de vapor.","D":"Los textiles irán doblados, el instrumental metálico protegido y los tubos enrollados."},"correcta":"D","explicacion":"En la preparación de material suelto (elementos que no forman parte de packs ni contenedores), el documento indica explícitamente que los elementos textiles irán doblados, el instrumental metálico irá protegido (especialmente puntas o filos) y el material tubular irá enrollado (sin acodamientos)."},{"id":95,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Durante el doblado de un paño de campo (Técnica 2), tras doblar los laterales hacia el centro, levantar por la mitad y doblar los lados estrechos, ¿cómo concluye el protocolo?","opciones":{"A":"Se doblan los picos abiertos hacia el lado opuesto en ambas caras del paño.","B":"Se introduce directamente el paño doblado en una bolsa de Tyvek sin sellar.","C":"Se gira el paño para verificar que la abertura central quede perfectamente visible.","D":"Se fijan las esquinas del paño con cinta adhesiva de control químico interno."},"correcta":"A","explicacion":"En la Técnica 2 (doblado de un paño de campo), tras llevar los laterales al centro, levantar por el centro y doblar los lados estrechos hacia la mitad, se agarra el centro dejando el paño doblado a la mitad, se coge el pico que está abierto y se dobla hacia el lado opuesto; luego se da la vuelta y se repite el proceso con el otro pico."},{"id":96,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.2","subtema":"4.2. El empaquetado del material","enunciado":"Al finalizar la preparación de un contenedor quirúrgico para vapor, además de cerrar y colocar el precinto con control externo, ¿qué documentación debe cumplimentarse obligatoriamente?","opciones":{"A":"El registro de calibración física y el parte semanal de mantenimiento preventivo.","B":"La hoja de incidencia de lavado y la ficha técnica del filtro desechable.","C":"La etiqueta identificativa y el documento que certifica el contenido preparado.","D":"El volante de solicitud de quirófano y el certificado del control biológico diario."},"correcta":"C","explicacion":"El paso 6 de la Técnica 6 (y el paso 8 de la Técnica 5) establece expresamente la obligación de rellenar la etiqueta identificativa y el documento que certifica el contenido del paquete o contenedor."},{"id":97,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.3","subtema":"4.3. El sellado de los paquetes","enunciado":"Un quirófano devuelve una bolsa mixta sin abrir alegando que no puede verificar cuándo caduca el material ni abrirla de forma cómoda sin riesgo de contaminar las pinzas. ¿Qué elemento de una termoselladora automática falló o faltó?","opciones":{"A":"La impresión de la fecha de caducidad y la pestaña tipo «abrefácil».","B":"El precinto antimanipulación metálico y el filtro semipermanente de silicona.","C":"La zona adhesiva previa de celulosa y el doble plegado en sobre secuencial.","D":"El sello en frío mediante grapado paralelo y la tinta indicadora de tipo s2."},"correcta":"A","explicacion":"Las termoselladoras automáticas realizan por calor un sellado hermético en materiales termofundibles (bolsas mixtas y Tyvek®), dejando además una pestaña en un extremo que funciona a modo de «abrefácil» e imprimiendo los datos relativos al proceso, entre ellos la fecha de caducidad."},{"id":98,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.3","subtema":"4.3. El sellado de los paquetes","enunciado":"En la mesa de sellado hay cuatro tipos de envases listos para cerrar: un contenedor rígido, un paquete textil hecho a mano en papel crepado, una bolsa de papel y una bolsa de Tyvek®. ¿Cuál necesita un precinto antimanipulación y cuál cierre adhesivo más termosellado?","opciones":{"A":"El paquete a mano lleva precinto metálico y la bolsa de Tyvek cierre adhesivo.","B":"El contenedor lleva precinto antimanipulación y la bolsa de papel adhesivo más termosellado.","C":"La bolsa de papel lleva precinto antimanipulación y el contenedor cinta con e1.","D":"El Tyvek lleva cinta engomada externa y el paquete hecho a mano termosellado."},"correcta":"B","explicacion":"Según el apartado 4.3: los contenedores tienen su propio sistema de sellado y solo se añade un precinto antimanipulación; los paquetes hechos a mano se precintan con cinta adhesiva con control químico externo impreso; las bolsas de papel se cierran por la zona adhesiva y después se termosellan; y las bolsas mixtas y Tyvek® se sellan por calor con termoselladoras automáticas."},{"id":99,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.3","subtema":"4.3. El sellado de los paquetes","enunciado":"Para sellar una bolsa de papel de grado médico llena de material textil antes de llevarla al autoclave de vapor, ¿qué procedimiento garantiza un cierre correcto?","opciones":{"A":"Aplicar únicamente cinta engomada externa sin utilizar la zona adhesiva propia.","B":"Doblar la solapa tres veces y fijarla con un precinto plástico rígido estándar.","C":"Cerrar primero por su zona adhesiva y proceder después al termosellado térmico.","D":"Utilizar exclusivamente el sellado por calor sin despegar la banda adhesiva."},"correcta":"C","explicacion":"Las bolsas de papel cuentan en su lado abierto con una banda adhesiva; el documento especifica que primero deben cerrarse por la zona adhesiva y después proceder al termosellado para asegurar su hermeticidad."},{"id":100,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.3","subtema":"4.3. El sellado de los paquetes","enunciado":"Un paquete textil envuelto manualmente con dos pliegos de papel crepado está listo para su cierre definitivo. ¿Cómo debe sellarse y qué característica debe reunir la cinta empleada?","opciones":{"A":"Con sellado térmico automático en los cuatro bordes, dejando pestaña «abrefácil».","B":"Con cordón de algodón anudado en la cara superior sin adhesivos químicos.","C":"Con un precinto plástico rígido reutilizable atravesando las esquinas del papel.","D":"Con cinta adhesiva en su cara externa que lleve impreso un control químico externo."},"correcta":"D","explicacion":"Los paquetes hechos a mano (con pliegos de papel de empaquetado o sábanas) se precintan en su cara externa con cinta adhesiva (cinta engomada), la cual llevará impreso un control químico externo (e1)."},{"id":101,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.3","subtema":"4.3. El sellado de los paquetes","enunciado":"¿Qué propiedades técnicas hacen posible que las bolsas mixtas y las de Tyvek® puedan cerrarse herméticamente mediante termoselladoras automáticas?","opciones":{"A":"Que sus caras son totalmente impermeables a cualquier gas y resisten 300 °C.","B":"Que incorporan materiales termofundibles capaces de sellarse por acción del calor.","C":"Que presentan fibras de papel crepado tratadas con cola orgánica hidrosoluble.","D":"Que llevan incorporados filtros sintéticos semipermanentes en toda la costura."},"correcta":"B","explicacion":"Las termoselladoras automáticas son máquinas que realizan mediante calor un sellado hermético en los materiales termofundibles (como el poliéster-polipropileno de las bolsas mixtas o el polietileno del Tyvek®)."},{"id":102,"temaId":"T4","tema":"4. Empaquetado para la esterilización","subtemaId":"4.3","subtema":"4.3. El sellado de los paquetes","enunciado":"En la zona estéril se recibe un contenedor rígido de aluminio con su tapa cerrada, pero el precinto antimanipulación está roto. ¿Qué decisión debe adoptarse de inmediato?","opciones":{"A":"Considerar comprometida la garantía de esterilidad hasta verificar y reprocesar.","B":"Sustituir el precinto roto por uno nuevo antes de enviar la caja al quirófano.","C":"Comprobar únicamente la gráfica de presión del autoclave y distribuir el material.","D":"Abrir el contenedor en la zona estéril para revisar el color del indicador interno."},"correcta":"A","explicacion":"El sellado y el precinto antimanipulación garantizan la esterilidad hasta el momento de uso; si el precinto está roto, no puede asegurarse que el contenedor no haya sido abierto o manipulado tras el ciclo, por lo que no puede darse por estéril y debe reprocesarse (además nunca debe abrirse en la zona estéril para mirar dentro y luego distribuirse)."},{"id":103,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.1","subtema":"5.1. Controles físicos","enunciado":"Al concluir un ciclo de autoclave de vapor, la gráfica impresa por los sensores de la máquina muestra que temperatura, presión y tiempo fueron correctos. ¿Es suficiente este dato para liberar la carga como estéril?","opciones":{"A":"Sí, porque los controles físicos son los únicos que garantizan la letalidad microbiana.","B":"Sí, siempre que el paquete lleve además una cinta adhesiva externa sin cambiar.","C":"No, porque solo informan de la zona del sensor y no del interior de los paquetes.","D":"No, porque los controles físicos únicamente se utilizan una vez al mes tras reparar."},"correcta":"C","explicacion":"Los controles físicos (temperatura, humedad, presión, tiempo) son indicadores de primer nivel que solo certifican las condiciones en la zona donde están situados los sensores, sin ser sensibles a problemas con la carga o el interior de los paquetes. Solamente la certificación conjunta de controles físicos, químicos y biológicos garantiza el proceso."},{"id":104,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.1","subtema":"5.1. Controles físicos","enunciado":"Durante un ciclo de esterilización en frío, el registro informático de los sensores físicos muestra una caída anómala de la presión durante la meseta (resultado negativo). ¿Cómo debe actuar el personal de la UCE?","opciones":{"A":"Revisar el cambio de color del control químico interno antes de validar el lote.","B":"Esperar al resultado de la incubación biológica de la carga antes de rechazarla.","C":"Repetir únicamente la fase de esterilización térmica manteniendo la misma carga dentro.","D":"Tratar toda la carga como no estéril de inmediato sin esperar a otros controles."},"correcta":"D","explicacion":"Los controles físicos constituyen el primer nivel de control: si el resultado del control físico es negativo, la carga debe tratarse inmediatamente como no estéril. Si es positivo, entonces hay que analizar los niveles de control siguientes (químicos y biológicos)."},{"id":105,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.1","subtema":"5.1. Controles físicos","enunciado":"¿Con qué frecuencia deben aplicarse los controles físicos en los esterilizadores hospitalarios y qué requisito de mantenimiento periódico precisan?","opciones":{"A":"Semanalmente en cada equipo, requiriendo sustitución diaria de los cables de fibra.","B":"En todos y cada uno de los ciclos, requiriendo revisiones y calibraciones periódicas.","C":"Solo al estrenar el autoclave o tras reparar averías, sin calibración posterior.","D":"Únicamente en ciclos con implantes o prótesis, validados por el servicio de cirugía."},"correcta":"B","explicacion":"Los controles físicos se llevan a cabo en todos los ciclos de esterilización y, al depender de sensores integrados (temperatura, humedad, presión, tiempo), requieren revisiones y calibraciones periódicas para asegurar la fiabilidad de sus mediciones."},{"id":106,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.1","subtema":"5.1. Controles físicos","enunciado":"¿De qué manera registran actualmente los esterilizadores hospitalarios los parámetros medidos por sus controles físicos?","opciones":{"A":"Mediante cambio de color por fluorescencia enzimática en ampollas incubadas.","B":"Mediante cintas de papel crepado adheridas manualmente en el exterior del carro.","C":"Mediante gráficas o tablas continuas impresas en papel o archivos informáticos.","D":"Mediante tiras reactivas de inmersión analizadas al finalizar el cuarto aclarado."},"correcta":"C","explicacion":"En las máquinas actuales los sensores integrados miden continuamente los parámetros (temperatura, humedad, presión, tiempo) y los registran en gráficas o tablas que se imprimen en papel o se almacenan como archivos informáticos."},{"id":107,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.1","subtema":"5.1. Controles físicos","enunciado":"Un autoclave presenta una sobrecarga de paquetes tan apretados que el vapor no penetra en el centro de los packs textiles, aunque la cámara vacía junto al sensor alcanza 135 °C. ¿Qué ocurriría con los controles físicos?","opciones":{"A":"Darían un resultado positivo engañoso al no detectar fallos internos de la carga.","B":"Bloquearían automáticamente la puerta e indicarían fallo por exceso de celulosa.","C":"Detectarían con precisión las bacterias viables en el centro de cada paquete textil.","D":"Cambiarían el parámetro F por debajo de cero imprimiendo una alerta de carga."},"correcta":"A","explicacion":"Precisamente porque los controles físicos solo miden las condiciones físicas en el punto donde se ubican los sensores de la cámara, no son sensibles a problemas locales de la carga (como paquetes apretados o mal colocados) ni al interior de los envases. De ahí que sean indispensables los controles químicos internos y los biológicos."},{"id":108,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.2","subtema":"5.2. Controles químicos","enunciado":"Al abrir un paquete textil en quirófano, la instrumentista comprueba que la cinta externa cambió de color, pero observa que dentro no hay ningún indicador químico. ¿Por qué no garantiza la esterilidad del contenido esa cinta externa?","opciones":{"A":"Porque los indicadores externos están en desuso desde la norma ISO 11140-1:2014.","B":"Porque los indicadores externos solo responden a la humedad ambiental del almacén.","C":"Porque la cinta externa mide únicamente el vacío inicial antes de inyectar vapor.","D":"Porque el indicador e1 solo acredita exposición al proceso, sin informar del interior."},"correcta":"D","explicacion":"El indicador externo o de proceso (e1) se coloca en cada paquete (en cintas engomadas, precintos o filtros) y únicamente indica que el paquete ha sido sometido al proceso completo, pero no aporta información alguna sobre las condiciones alcanzadas en el interior del paquete."},{"id":109,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.2","subtema":"5.2. Controles químicos","enunciado":"Cada mañana antes de iniciar los ciclos asistenciales en un autoclave de prevacío, el TCAE introduce un paquete de papel con un indicador químico en su centro. ¿Qué prueba realiza y qué debe observar para validarla?","opciones":{"A":"Un test de Bowie-Dick (s2), buscando un cambio completo y uniforme.","B":"Un control multiparamétrico i4, verificando la letalidad sobre esporas bacterianas.","C":"Un indicador monoparamétrico i3, midiendo exclusivamente la presión negativa final.","D":"Un control emulador i6, comprobando la degradación del papel tras el ciclo flash."},"correcta":"A","explicacion":"El indicador de pruebas especiales (s2), cuyo ejemplo clásico es el test de Bowie-Dick, es un test diario que se realiza en autoclaves de vacío para comprobar la completa expulsión del aire y la correcta penetración del vapor en la carga; se considera válido cuando el indicador central del paquete cambia completa y uniformemente de color."},{"id":110,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.2","subtema":"5.2. Controles químicos","enunciado":"Según la normativa vigente ISO 11140-1:2014, ¿en cuántas categorías se clasifican actualmente los controles químicos y qué sustituyó esta norma?","opciones":{"A":"En cuatro clases (A-D), sustituyendo a la antigua clasificación en seis tipos numéricos.","B":"En tres categorías (externo, especiales e internos), sustituyendo a EN 867-1 e ISO 2009.","C":"En seis categorías independientes (1-6), manteniendo la antigua norma EN 867-1.","D":"En dos niveles básicos (físico-químico y biológico), derogando el test de Bowie-Dick."},"correcta":"B","explicacion":"La norma ISO 11140-1:2014 clasifica los controles químicos en tres categorías (indicador externo o de proceso e1, indicador de pruebas especiales s2, e indicadores internos i3, i4, i5 e i6), sustituyendo a la antigua EN 867-1 (clases A-D) y a los seis grupos de la versión ISO 2009 (1-6)."},{"id":111,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.2","subtema":"5.2. Controles químicos","enunciado":"Al empaquetar unas pinzas sueltas en bolsa mixta pequeña (Técnica 7) y un paquete textil voluminoso de cirugía mayor (Técnica 5), ¿qué indicadores químicos internos se corresponden mejor con cada formato?","opciones":{"A":"Un indicador s2 para la bolsa mixta pequeña y un indicador i3 para el pack textil.","B":"Un indicador e1 dentro de la bolsa mixta y un indicador s2 dentro del pack textil.","C":"Un indicador i3 dentro de ambos paquetes al ser los dos compatibles con vapor.","D":"Un indicador i4 en la bolsa pequeña y un integrador i5 en el paquete voluminoso."},"correcta":"D","explicacion":"El indicador interno multiparamétrico (i4) registra las principales variables (exposición al agente y tiempo o temperatura) y se usa principalmente en paquetes pequeños; el indicador interno integrador (i5) registra todas las variables del ciclo y se usa principalmente en paquetes textiles voluminosos y contenedores de instrumental."},{"id":112,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.2","subtema":"5.2. Controles químicos","enunciado":"Un supervisor retira de los carros de empaquetado unos indicadores antiguos que solo registran una única variable crítica del ciclo (exposición al vapor). ¿De qué tipo de indicador se trata y cuál es su situación actual?","opciones":{"A":"Indicador interno monoparamétrico (i3), que se encuentra actualmente en desuso.","B":"Indicador interno emulador (i6), diseñado para sustituir al integrador estándar.","C":"Indicador externo de proceso (e1), utilizado solo para ciclos de calor seco.","D":"Indicador de pruebas especiales (s2), restringido a ciclos de ácido peracético."},"correcta":"A","explicacion":"El indicador interno monoparamétrico (i3) registra una única variable crítica del ciclo (como la simple exposición al vapor o al OE) y está en desuso, siendo sustituido principalmente por el multiparamétrico (i4) o los integradores/emuladores (i5/i6)."},{"id":113,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.2","subtema":"5.2. Controles químicos","enunciado":"En una caja quirúrgica destinada a un ciclo específico de priones se introduce un indicador químico que registra todas las variables específicas de ese ciclo concreto y lleva impresa su identificación. ¿Qué indicador es?","opciones":{"A":"Un indicador interno multiparamétrico (i4) de lectura gradual tipo termómetro.","B":"Un indicador de pruebas especiales (s2) equivalente al paquete de Bowie-Dick.","C":"Un indicador interno emulador (i6) diseñado para ciclos específicos concretos.","D":"Un indicador externo (e1) adherido al filtro semipermanente del contenedor."},"correcta":"C","explicacion":"El indicador interno emulador (i6) registra todas las variables específicas del ciclo para el que ha sido diseñado; funciona igual que el i5 (integrador) pero orientado a ciclos específicos, debiendo incluir la información del ciclo para el cual está diseñado."},{"id":114,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.2","subtema":"5.2. Controles químicos","enunciado":"¿Qué característica diferencial presentan los distintos modelos de indicador interno integrador (i5) en cuanto a la lectura de su cambio de color?","opciones":{"A":"Solo revelan su cambio bajo luz ultravioleta tras incubarse tres horas.","B":"Viran de color únicamente cuando se alcanza una variable térmica aislada.","C":"Exigen sumergirse en agua filtrada tras el ciclo para fijar el color.","D":"Muestran un cambio de color gradual progresivo o de punto final."},"correcta":"D","explicacion":"El documento señala respecto al indicador interno integrador (i5) que registra todas las variables del ciclo y su cambio de color puede ser de dos tipos: cambio gradual (como un termómetro que avanza hasta la zona válida) o cambio de punto final."},{"id":115,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.2","subtema":"5.2. Controles químicos","enunciado":"Un TCAE utiliza tiras químicas diseñadas para autoclave de vapor dentro de una cámara de gas plasma de peróxido de hidrógeno alegando que «todas cambian de color con el calor». ¿Por qué es grave este error?","opciones":{"A":"Porque los controles químicos de vapor destruyen el filtro HEPA de la cámara.","B":"Porque cada control químico es específico para un proceso concreto de esterilización.","C":"Porque las tiras de vapor son radiactivas al exponerse al campo electromagnético.","D":"Porque el gas plasma valida sus ciclos mediante sensores físicos sin tiras químicas."},"correcta":"B","explicacion":"Los controles químicos deben ser específicos para cada proceso de esterilización (vapor, OE, GPPH, etc.) para poder garantizar que se han alcanzado las condiciones características de ese agente concreto en el lugar donde están situados."},{"id":116,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.2","subtema":"5.2. Controles químicos","enunciado":"Con respecto a la frecuencia de colocación de los seis tipos de controles químicos (e1, s2, i3, i4, i5, i6), ¿cuál es la regla general en la central de esterilización?","opciones":{"A":"Todos menos los especiales (s2) se utilizan en todos y cada uno de los paquetes.","B":"Los externos (e1) van en cada paquete y los internos (i4-i6) solo una vez al día.","C":"Solo se colocan controles químicos internos cuando falla el registro físico previo.","D":"Los especiales (s2) se introducen dentro de cada contenedor quirúrgico de quirófano."},"correcta":"A","explicacion":"Tal como concluye la tabla de controles químicos, todos los indicadores excepto los especiales (s2), que tienen su propia periodicidad (por ejemplo, diaria en autoclaves de vacío), se utilizan en todos y cada uno de los paquetes procesados."},{"id":117,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.2","subtema":"5.2. Controles químicos","enunciado":"En una inspección del test de Bowie-Dick realizado a primera hora en el autoclave de prevacío, la zona central del papel muestra un color incompleto y más claro que los bordes. ¿Qué indica este resultado?","opciones":{"A":"Que el ciclo está listo para cargar textiles voluminosos al haber exceso de vacío.","B":"Que solo se ha visto afectada la cara externa del paquete sin riesgo para el metal.","C":"Que el indicador biológico semanal de la semana anterior debe incubarse a 37 °C.","D":"Que existen fallos en la expulsión de aire o penetración de vapor y no es válido."},"correcta":"D","explicacion":"Para que el test de Bowie-Dick (s2) sea considerado válido, el indicador químico en el centro del paquete de papel debe cambiar completa y uniformemente de color. Un cambio desigual o incompleto señala aire residual o mala penetración del vapor, invalidando el equipo hasta su revisión."},{"id":118,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.3","subtema":"5.3. Controles biológicos","enunciado":"En la zona limpia de la UCE hay dos tipos de ampollas biológicas: unas con esporas de Geobacillus stearothermophilus y otras con Bacillus atrophaeus. ¿Para qué métodos debe emplearse la primera y a qué temperatura se incuba?","opciones":{"A":"Para calor seco y óxido de etileno, incubándola posteriormente a 37 °C.","B":"Para autoclave de vapor, VFA y GPPH, incubándola posteriormente a 56 °C.","C":"Exclusivamente para radiación gamma industrial, incubándola a 75 °C.","D":"Únicamente para el ciclo flash de vapor sin envasar, incubándola a 45 °C."},"correcta":"B","explicacion":"Geobacillus stearothermophilus (cuyas esporas se destruyen por encima de 121 °C) se emplea para controlar vapor, vapor de formaldehído (VFA) y gas plasma de peróxido de hidrógeno (GPPH), incubándose a 56 °C. Bacillus atrophaeus se emplea para calor seco y OE, incubándose a 37 °C."},{"id":119,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.3","subtema":"5.3. Controles biológicos","enunciado":"Una carga de autoclave de vapor contiene prótesis articulares e implantes traumatológicos, aunque el control biológico semanal reglamentario se realizó el día anterior. ¿Qué exige el protocolo?","opciones":{"A":"Realizar un control biológico en esa carga por contener prótesis o implantes.","B":"Omitir el control biológico y confiar únicamente en el integrador químico i5.","C":"Esperar al siguiente lunes para realizar el control semanal reglamentario.","D":"Utilizar un vial de Bacillus atrophaeus incubado durante 24 horas a 56 °C."},"correcta":"A","explicacion":"La periodicidad del control biológico depende del método: semanal en autoclave de vapor y en cada carga en OE, GPPH y VFA; pero además se realiza obligatoriamente tras una reparación del equipo o siempre que se esterilicen prótesis o implantes."},{"id":120,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.3","subtema":"5.3. Controles biológicos","enunciado":"Tras finalizar un ciclo de óxido de etileno, se presiona un tubo de control biológico de segunda generación para romper la ampolla interna y se incuba 48 horas a 37 °C. Al revisarlo, el medio de cultivo ha cambiado de color. ¿Cómo se interpreta?","opciones":{"A":"Test negativo: el proceso de esterilización es válido y la carga puede distribuirse.","B":"Test dudoso: exige prolongar la incubación otras 24 horas adicionales a 56 °C.","C":"Test positivo: han sobrevivido bacterias y el proceso de esterilización se invalida.","D":"Test neutro: confirma la ausencia de gas residual tras la aireación prolongada."},"correcta":"C","explicacion":"En los controles biológicos de segunda generación, si el medio de cultivo NO cambia de color tras la incubación (24-48 h), el test es negativo (no hubo crecimiento bacteriano) y la esterilización es válida. Si cambia de color, significa que las bacterias sobrevivieron y el ciclo queda invalidado."},{"id":121,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.3","subtema":"5.3. Controles biológicos","enunciado":"¿Por qué se considera que el control biológico es el «verdadero control de esterilización» frente a los indicadores físicos y químicos?","opciones":{"A":"Porque ofrece una lectura inmediata al instante de abrir la puerta de descarga.","B":"Porque sustituye por completo la necesidad de realizar controles físicos en cada ciclo.","C":"Porque detecta con exactitud los poros superiores a 0,1 μm en las bolsas mixtas.","D":"Porque evalúa la letalidad real del proceso sobre esporas especialmente resistentes."},"correcta":"D","explicacion":"Los controles biológicos someten esporas no patógenas de bacterias especialmente resistentes al proceso para comprobar su letalidad real. Si no se desarrollan al incubarlas, la esterilización ha sido eficaz; un fallo indica mala esterilización al margen de cuál haya sido la causa."},{"id":122,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.3","subtema":"5.3. Controles biológicos","enunciado":"Al utilizar controles biológicos para validar una cámara o carga, ¿en qué lugar exacto debe ubicarse el indicador según lo que se pretenda comprobar?","opciones":{"A":"Junto al sensor físico de la puerta para la cámara, y pegado por fuera del paquete.","B":"En los lugares más inaccesibles dentro de paquete para la cámara, o centro de paquete.","C":"Suspendido en el desagüe de drenaje para la cámara, y sobre el carro metálico.","D":"En el área de control de la zona sucia antes de introducir los carros a las lavadoras."},"correcta":"B","explicacion":"La colocación depende de la finalidad: para controlar la cámara se colocan en sus lugares más inaccesibles dentro de un paquete textil en bolsa mixta o forma comercial ad hoc, y para controlar paquetes se sitúan en el centro de un paquete."},{"id":123,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.3","subtema":"5.3. Controles biológicos","enunciado":"Un hospital incorpora controles biológicos de tercera generación (incubación rápida) basados en la detección fluorescente de la enzima α-D-glucosidasa. ¿En cuánto tiempo permiten obtener lectura para vapor estándar y para OE?","opciones":{"A":"3 horas para autoclave de vapor y 4 horas para óxido de etileno.","B":"1 hora para autoclave de vapor y 3 horas para óxido de etileno.","C":"24 horas para autoclave de vapor y 48 horas para óxido de etileno.","D":"12 horas para autoclave de vapor y 14 horas para óxido de etileno."},"correcta":"A","explicacion":"Los sistemas de incubación rápida (tercera generación) detectan por fluorescencia la enzima α-D-glucosidasa asociada a las esporas en: 1 hora para ciclos flash, 3 horas para autoclave de vapor y 4 horas para óxido de etileno."},{"id":124,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.3","subtema":"5.3. Controles biológicos","enunciado":"En una clínica dental que aún conserva un horno Pasteur de calor seco para material de vidrio y lo utiliza solo de manera esporádica (una vez al mes), ¿con qué periodicidad debe aplicar controles biológicos?","opciones":{"A":"Una vez cada seis meses tras la revisión anual del técnico de mantenimiento.","B":"Semanalmente los lunes aunque el horno permanezca apagado esa semana.","C":"En cada ciclo que se realice, utilizando esporas de Bacillus atrophaeus.","D":"Únicamente tras reparar resistencias, al validarse con controles físicos diarios."},"correcta":"C","explicacion":"El cuadro «Horno Pasteur» indica que en los ciclos de hornos Pasteur se realizan controles biológicos semanalmente si se usan con cierta frecuencia, pero si su uso es esporádico se debe controlar cada ciclo. Para calor seco se emplea Bacillus atrophaeus."},{"id":125,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.3","subtema":"5.3. Controles biológicos","enunciado":"Antes de presionar el tubo de plástico de segunda generación para romper la ampolla de vidrio interior tras el ciclo, ¿qué comprobación previa debe hacer el técnico sobre el propio tubo?","opciones":{"A":"Verificar que el indicador químico externo del tubo haya cambiado al exponerse.","B":"Sumergir el tubo durante 12 minutos en agua filtrada a 45 °C para aclararlo.","C":"Confirmar que la tapa permeable del tubo quedó sellada por calor al vacío.","D":"Registrar la lectura inicial por fluorescencia antes de romper la ampolla interna."},"correcta":"A","explicacion":"El tubo de segunda generación lleva un indicador químico externo. Tras el ciclo, primero se comprueba mediante ese control externo que el tubo se ha sometido al proceso; después se presiona el tubo para romper la ampolla interior y se incuba de 24 a 48 horas."},{"id":126,"temaId":"T5","tema":"5. Validación de los procesos de esterilización","subtemaId":"5.3","subtema":"5.3. Controles biológicos","enunciado":"Si se compara la periodicidad de control biológico rutinario entre un autoclave de vapor (sin prótesis ni reparaciones) y un esterilizador de gas plasma de peróxido de hidrógeno, ¿qué diferencia existe?","opciones":{"A":"El vapor se controla en cada carga y el GPPH únicamente una vez al mes.","B":"Ambos sistemas exigen obligatoriamente control biológico en cada ciclo diario.","C":"El vapor solo se controla tras reparaciones y el GPPH una vez a la semana.","D":"El autoclave de vapor se controla una vez por semana y el GPPH en cada carga."},"correcta":"D","explicacion":"En condiciones rutinarias, el autoclave de vapor requiere control biológico una vez por semana (salvo reparación o prótesis/implantes), mientras que los sistemas químicos en frío OE, GPPH y VFA requieren control biológico en cada carga."},{"id":127,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.0","subtema":"6.0. Estructura, flujos y función general de la UCE","enunciado":"¿Qué principio arquitectónico y operativo rige la comunicación y la circulación entre la zona sucia, la zona limpia y la zona estéril dentro de una UCE hospitalaria?","opciones":{"A":"Flujo bidireccional libre entre zona limpia y estéril para agilizar los envíos urgentes.","B":"Acceso abierto a todas las unidades clínicas para que retiren su propio material.","C":"Flujo unidireccional estricto en sentido sucio → limpio → estéril y acceso restringido.","D":"Separación de zonas por turnos horarios usando los mismos pasillos de entrada y salida."},"correcta":"C","explicacion":"Para mantener completamente separado el material sucio del estéril y evitar cruces contaminantes, el acceso a la UCE debe estar restringido y la comunicación entre sus tres zonas diferenciadas debe ser estrictamente unidireccional en el sentido de sucio a estéril."},{"id":128,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.0","subtema":"6.0. Estructura, flujos y función general de la UCE","enunciado":"¿Qué dato del estudio EPINE de 2016 refleja la relevancia sanitaria y económica de contar con una Unidad Central de Esterilización rigurosamente controlada?","opciones":{"A":"Que el 45% de las cirugías se complican con infecciones evitables solo con UV-C.","B":"Que un mayor control esterilizador previene un 56,6% de las infecciones quirúrgicas.","C":"Que la externalización total de la UCE elimina por completo los costes intangibles.","D":"Que los costes directos del bloque quirúrgico superan el 56,6% por fallo del OE."},"correcta":"B","explicacion":"El estudio EPINE de 2016 muestra que el 4,5% de las cirugías se complican con infecciones, estimándose que mediante un mayor control de los procesos de esterilización se puede prevenir un 56,6% de esas infecciones, con un ahorro directo de 417 millones de euros además de los costes intangibles (dolor, sufrimiento, ansiedad)."},{"id":129,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.0","subtema":"6.0. Estructura, flujos y función general de la UCE","enunciado":"Aunque la tendencia actual es disponer de una UCE centralizada para todo el hospital, existen variaciones organizativas según el centro. ¿En qué consiste una «central sin zona sucia»?","opciones":{"A":"En una central donde el material llega limpio tras efectuarse la limpieza en quirófano.","B":"En una minicentral ubicada dentro del bloque quirúrgico dedicada solo a urgencias flash.","C":"En un servicio donde la limpieza se realiza dentro de la zona limpia antes del empaquetado.","D":"En una unidad centralizada que solo procesa material textil limpio enviado desde lavandería."},"correcta":"A","explicacion":"Aunque se tiende a una UCE única para todo el hospital, existen dos variaciones principales: centrales sin zona sucia (donde la limpieza inicial se lleva a cabo en el bloque quirúrgico, llegando el material ya limpio a la UCE) y minicentrales situadas dentro del bloque quirúrgico."},{"id":130,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.0","subtema":"6.0. Estructura, flujos y función general de la UCE","enunciado":"¿Qué cuatro funciones fundamentales definen la actividad global de la Unidad Central de Esterilización?","opciones":{"A":"Recibir y procesar material; gestionar la lavandería del hospital; controlar farmacia; desinfectar quirófanos.","B":"Recibir y procesar material; almacenar y distribuir; garantizar procedimientos; cuidar seguridad del personal.","C":"Limpiar y desinfectar instrumental; fabricar los envoltorios médicos; reparar quirófanos; auditar las plantas.","D":"Seleccionar y empaquetar cargas; dirigir el bloque quirúrgico; distribuir medicamentos; evaluar las infecciones."},"correcta":"B","explicacion":"Las funciones de la UCE son: 1) recibir el material sucio, seleccionarlo y realizar limpieza, desinfección y esterilización; 2) almacenar, preservar y distribuir el material procesado; 3) garantizar todos los procedimientos; y 4) cuidar de la seguridad del personal de la UCE."},{"id":131,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.1","subtema":"6.1. Zona sucia","enunciado":"Un TCAE asignado a la zona sucia recibe una caja de instrumental procedente de urgencias. ¿Qué medidas de protección personal y qué tareas iniciales debe realizar en esta área?","opciones":{"A":"Ropa de aislamiento y lavado aséptico; empaquetar de inmediato en bolsa mixta.","B":"Ropa de seguridad y lavado de manos estándar; contrastar documentos, clasificar y limpiar.","C":"Ropa de calle con guantes estériles; cargar los paquetes en los esterilizadores.","D":"Ropa de seguridad y lavado quirúrgico; sellar el contenedor con precinto externo."},"correcta":"B","explicacion":"En la zona sucia el personal debe llevar ropa de seguridad y realizarse el lavado de manos estándar (a diferencia de las zonas limpia y estéril, que exigen ropa de aislamiento y lavado aséptico). Su función es recibir el material sucio, contrastar los documentos de control, seleccionar los elementos y realizar la limpieza y desinfección."},{"id":132,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.1","subtema":"6.1. Zona sucia","enunciado":"En una central hospitalaria bien diseñada, ¿de qué manera llega habitualmente el material textil limpio y cómo se comunica la zona sucia con la zona limpia para trasladar el instrumental lavado?","opciones":{"A":"El textil entra por la zona sucia para lavarse y el metal pasa en carros por el pasillo.","B":"Todo entra por la zona estéril y se traslada en cajas abiertas hacia las lavadoras.","C":"El textil llega de lavandería por acceso propio y el metal pasa por las lavadoras centrales.","D":"El personal de la zona sucia entrega en mano las bandejas dentro de la zona limpia."},"correcta":"C","explicacion":"Generalmente el material textil llega limpio desde la lavandería a un almacén de limpio con acceso independiente (sin pasar por la zona sucia). Por su parte, el instrumental sucio entra desde el exterior a la zona sucia y se introduce en las lavadoras centrales (de doble puerta) por la zona sucia para retirarse limpio en la zona limpia."},{"id":133,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.1","subtema":"6.1. Zona sucia","enunciado":"Con respecto a la circulación del personal que trabaja en la zona sucia, ¿qué movimientos le están permitidos dentro de la normativa de flujos unidireccionales?","opciones":{"A":"Únicamente moverse entre la zona sucia y el exterior de la central.","B":"Pasar directamente de la zona sucia al área de empaquetado tras cambiar guantes.","C":"Circular por las tres zonas de la UCE siguiendo la dirección de los carros.","D":"Entrar a la zona limpia por el bloqueo de aire para entregar carros secos."},"correcta":"A","explicacion":"Los flujos de personal deben ser estrictamente unidireccionales y compartimentados: el personal asignado a la zona sucia solo puede moverse entre la zona sucia y el exterior de la central, nunca pasar directamente a la zona limpia ni a la zona estéril."},{"id":134,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.1","subtema":"6.1. Zona sucia","enunciado":"¿Qué dotación de equipamiento técnico resulta característica y propia de la zona sucia de la UCE para cumplir su cometido?","opciones":{"A":"Termoselladoras automáticas, incubadoras biológicas y estanterías de acero.","B":"Autoclaves de prevacío, cámaras de óxido de etileno y mesas de revisión estéril.","C":"Carros de distribución cerrada, bloqueos de aire y sistemas de paso tortuoso.","D":"Pilas-fregadero, mesas de clasificación, lavadoras, ultrasonidos y secado."},"correcta":"D","explicacion":"La zona sucia cuenta con: pilas-fregadero, mesas de recepción y clasificación, lavadoras, pilas de ultrasonidos y sistemas de secado, además de los elementos y productos de limpieza necesarios. Las termoselladoras e incubadoras están en la zona limpia y los carros de distribución en la estéril."},{"id":135,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.1","subtema":"6.1. Zona sucia","enunciado":"Si un instrumental llega a la ventanilla de la zona sucia sin su hoja o documento de control acompañante, ¿qué función propia de esta área se ve impedida inicialmente?","opciones":{"A":"El contraste de documentos con el material recibido para verificar su trazabilidad.","B":"La descarga directa de paquetes estériles hacia los carros de quirófano.","C":"La lectura por fluorescencia de las ampollas biológicas incubadas a 56 °C.","D":"El sellado térmico de bolsas mixtas dejando cuatro centímetros de margen."},"correcta":"A","explicacion":"El material sucio llega a la zona sucia acompañado de documentos de control, siendo función inicial de la central contrastar dichos documentos con el material recibido antes de seleccionarlo y limpiarlo."},{"id":136,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.2","subtema":"6.2. Zona limpia","enunciado":"¿Qué dos subáreas funcionales integran la zona limpia de la UCE y qué precaución exige la presencia de un esterilizador de óxido de etileno en ella?","opciones":{"A":"Zona de lavado y secado; el OE debe colocarse junto a las mesas textiles de doblado.","B":"Área de recepción y almacén de limpio; el OE debe tener presión positiva constante.","C":"Área de control/empaquetado y de esterilizadores; el OE va aparte con presión negativa.","D":"Área de distribución y revisión estéril; el OE comparte salida directa a urgencias."},"correcta":"C","explicacion":"La zona limpia se divide en dos áreas: el área de control y empaquetado (comprobar, contrastar documentos, clasificar, empaquetar y etiquetar) y el área de esterilizadores (donde se lleva a cabo la esterilización). Si existe un esterilizador de OE, debe situarse en una zona aparte dotada de sistemas de seguridad y presión negativa."},{"id":137,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.2","subtema":"6.2. Zona limpia","enunciado":"Al cargar un autoclave de vapor en la zona limpia con una carga mixta compuesta por contenedores metálicos, bolsas mixtas sueltas y paquetes textiles, ¿cómo deben distribuirse en la cámara?","opciones":{"A":"Apilar las bandejas y colocar los paquetes textiles arriba sobre los cestillos.","B":"Llenar al máximo todo el volumen disponible pegando las bolsas a las paredes.","C":"Tumbar las bolsas sueltas en horizontal debajo de las cajas metálicas pesadas.","D":"No sobrellenar, bandejas sin apilar, suelto vertical/inclinado y textil abajo."},"correcta":"D","explicacion":"Las reglas de carga en la zona limpia son: permitir la libre circulación del agente esterilizante sin sobrellenar ni contactar los paquetes entre sí ni con las paredes; disponer las bandejas horizontalmente sin apilar; colocar el material suelto en cestillos vertical o ligeramente inclinado; y preferiblemente cargas homogéneas (si es mixta con textil, el textil va en la parte de abajo)."},{"id":138,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.2","subtema":"6.2. Zona limpia","enunciado":"Un técnico de la zona limpia necesita salir al vestuario o descanso y otro compañero ingresa al turno. ¿Por qué espacio específico debe entrar y salir obligatoriamente el personal de la zona limpia?","opciones":{"A":"A través de una zona de renovación de aire (cuarto de bloqueo de aire).","B":"Directamente por las ventanas de paso del almacén de limpio de lavandería.","C":"Cruzando por el interior de la zona sucia tras quitarse la ropa de aislamiento.","D":"Utilizando la puerta de descarga de los carros en la zona estéril de salida."},"correcta":"A","explicacion":"Tanto en la zona limpia como en la zona estéril, el personal solo puede entrar y salir a través de una zona de renovación de aire (bloqueo de aire), manteniendo el aislamiento ambiental y evitando contaminaciones cruzadas."},{"id":139,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.2","subtema":"6.2. Zona limpia","enunciado":"¿Qué vestimenta e higiene de manos corresponden al personal que trabaja en la zona limpia antes de manipular el material para empaquetar?","opciones":{"A":"Ropa de seguridad impermeable y lavado de manos estándar con agua y jabón.","B":"Uniforme común de planta y uso exclusivo de guantes no estériles sin lavado.","C":"Ropa de aislamiento y realización del lavado de manos aséptico reglamentario.","D":"Bata quirúrgica estéril doblada del revés y doble guante de látex estéril."},"correcta":"C","explicacion":"En la zona limpia (al igual que en la zona estéril), el personal debe llevar ropa de aislamiento y realizarse el lavado de manos aséptico (mientras que en la zona sucia lleva ropa de seguridad y lavado de manos estándar)."},{"id":140,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.2","subtema":"6.2. Zona limpia","enunciado":"Respecto al flujo exclusivo de los materiales dentro de la zona limpia, ¿por qué vías puede entrar el material a esta área y por cuál única vía puede salir hacia la zona estéril?","opciones":{"A":"Entra por el bloqueo de aire y sale por las mesas de clasificación hacia distribución.","B":"Entra por lavadoras, ventanas de paso o almacén limpio, y sale por esterilizadores.","C":"Entra únicamente desde el exterior del hospital y sale por el almacén de lavandería.","D":"Entra por los carros de distribución y sale hacia la zona sucia mediante ultrasonidos."},"correcta":"B","explicacion":"En la zona limpia, el material solo puede entrar desde la zona sucia a través de las lavadoras, ventanas de paso o almacén limpio (textil), y únicamente puede salir hacia la zona estéril a través de los esterilizadores."},{"id":141,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.2","subtema":"6.2. Zona limpia","enunciado":"¿Por qué es incorrecto situar los paquetes textiles en los estantes superiores del carro del autoclave encima del instrumental metálico en una carga mixta?","opciones":{"A":"Porque el textil debe colocarse en la parte de abajo para no recibir condensación.","B":"Porque la temperatura de 135 °C es más alta en los estantes inferiores del carro.","C":"Porque las bolsas de celulosa pesan más que los contenedores metálicos cerrados.","D":"Porque los sensores físicos se ubican arriba y el textil bloquearía las válvulas."},"correcta":"A","explicacion":"El documento establece que la carga debe ser preferentemente homogénea, pero si es mixta y contiene textil, el textil debe situarse en la parte de abajo (debajo del material metálico, evitando así que la condensación generada sobre el metal gotee y moje los paquetes textiles superiores)."},{"id":142,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.3","subtema":"6.3. Zona estéril","enunciado":"Al extraer los paquetes del autoclave en la zona estéril, un lote aún presenta algo de humedad superficial y calor residual. ¿Qué medida exige el criterio de preservación de la esterilidad antes de almacenarlo?","opciones":{"A":"Guardarlo de inmediato en cajas cerradas herméticas para conservar la temperatura.","B":"Colocarlo en la parte inferior de las estanterías junto a los paquetes más antiguos.","C":"Enviarlo al almacén de limpio para repetir un ciclo rápido de secado en estufa.","D":"Esperar a que se elimine por completo la humedad antes de almacenarlo en estanterías."},"correcta":"D","explicacion":"El criterio de preservación de la esterilidad durante el almacenaje en zona estéril exige tres condiciones: debe almacenarse una vez eliminada la humedad, deben vigilarse las condiciones ambientales de la sala y debe ordenarse de forma que se eviten pérdidas por caducidad."},{"id":143,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.3","subtema":"6.3. Zona estéril","enunciado":"Siguiendo el criterio práctico de distribución desde la zona estéril de la UCE, ¿qué material constituye la excepción a la regla general de distribución según demanda?","opciones":{"A":"El material de curas de consultas externas, que se almacena seis meses en la UCE.","B":"El material de quirófano, que se envía directamente allí y se guarda en sus áreas.","C":"El material textil genérico, que se devuelve al almacén independiente de lavandería.","D":"El material de urgencias, que permanece en los carros de la zona limpia hasta uso."},"correcta":"B","explicacion":"Según el criterio práctico de distribución: cada tipo de material se almacena en estanterías diferenciadas y la distribución se realiza según la demanda de las unidades, salvo el material de quirófano, que se envía directamente al bloque quirúrgico y se guarda allí."},{"id":144,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.3","subtema":"6.3. Zona estéril","enunciado":"¿Qué tareas y dotación material son específicas de la zona estéril dentro del circuito de la UCE?","opciones":{"A":"Selección de instrumental sucio, limpieza ultrasónica y contraste inicial documental.","B":"Termosellado de bolsas mixtas, control químico i5 e incubación biológica a 56 °C.","C":"Extracción de esterilizadores, verificación, almacenaje en estanterías y carros de envío.","D":"Recepción de ropa desde lavandería, doblado de batas y precintado con cinta e1."},"correcta":"C","explicacion":"En la zona estéril se realiza la extracción del material esterilizado, se verifica la esterilidad y se almacena para su posterior distribución. Para ello dispone de mesas de revisión y clasificación, estanterías de almacenaje y carros de distribución."},{"id":145,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.3","subtema":"6.3. Zona estéril","enunciado":"Al ordenar los paquetes ya validados en las estanterías diferenciadas de la zona estéril, ¿qué criterio organizativo evita que caduquen lotes almacenados con anterioridad?","opciones":{"A":"Ordenar los paquetes por fecha de caducidad o procesamiento para sacar antes los antiguos.","B":"Mezclar todos los tipos de materiales en una misma balda según el peso del paquete.","C":"Colocar los lotes recién esterilizados delante tapando los envases de días previos.","D":"Almacenar todos los lotes en cajas cerradas opacas para protegerlos de la luz ambiental."},"correcta":"A","explicacion":"El tercer punto del criterio de preservación indica que el material debe ordenarse de forma que se eviten pérdidas por caducidad (colocando delante o usando primero los lotes con fecha de caducidad más próxima), además de almacenarse en estanterías diferenciadas por tipo de material."},{"id":146,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.3","subtema":"6.3. Zona estéril","enunciado":"Un enfermero de planta pretende acceder a la zona estéril de la UCE por la puerta de salida de los carros de distribución para recoger un paquete. ¿Por qué infringe la normativa de flujos?","opciones":{"A":"Porque los carros de distribución solo circulan entre la zona sucia y los esterilizadores.","B":"Porque el personal solo puede entrar/salir por renovación de aire y la puerta es solo de salida.","C":"Porque en la zona estéril no se realiza lavado de manos sino en el almacén de quirófano.","D":"Porque los materiales estériles salen únicamente a través de las ventanas de la zona sucia."},"correcta":"B","explicacion":"En la zona estéril, el personal autorizado solo puede entrar y salir a través de una zona de renovación de aire (llevando ropa de aislamiento y lavado aséptico), mientras que los materiales únicamente proceden de la zona limpia por los esterilizadores y salen directo a la distribución (flujo unidireccional)."},{"id":147,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.4","subtema":"6.4. El personal de la UCE","enunciado":"En el organigrama de la UCE, ¿qué titulación y función específica corresponden al puesto denominado «Técnico gerente»?","opciones":{"A":"Graduado en enfermería responsable de controlar los procesos en cada turno laboral.","B":"Técnico superior encargado exclusivamente de calibrar y reparar las termoselladoras.","C":"Graduado en enfermería dedicado a la gestión directa del material y del personal.","D":"Médico especialista en Medicina Preventiva y Salud Pública que supervisa las normas."},"correcta":"D","explicacion":"Según la tabla de personal de la UCE, el Técnico gerente es un médico especialista en Medicina Preventiva y Salud Pública encargado de la supervisión del cumplimiento de las normas vigentes. (A describe al Graduado en enfermería de turno, B al Técnico de mantenimiento y C al Supervisor)."},{"id":148,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.4","subtema":"6.4. El personal de la UCE","enunciado":"Durante el turno de tarde se detecta una incidencia en la trazabilidad de un ciclo y es necesario supervisar los controles de proceso del turno. ¿Qué figura profesional asume esa responsabilidad directa por turno?","opciones":{"A":"El técnico de mantenimiento asignado a la reparación de los autoclaves centrales.","B":"El médico especialista en Medicina Preventiva como técnico gerente general.","C":"El graduado en enfermería encargado de controlar los procesos de la UCE en su turno.","D":"El TCAE encargado de realizar el sellado de las bolsas y el lavado manual."},"correcta":"C","explicacion":"Dentro de la estructura de personal de la UCE, el Graduado en enfermería (de turno) es el encargado de controlar los procesos de la UCE en cada turno de trabajo, mientras que el Supervisor (también graduado en enfermería) se encarga de la gestión directa global de material y personal."},{"id":149,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.4","subtema":"6.4. El personal de la UCE","enunciado":"¿Qué conjunto de tareas operativas específicas de la central recae de forma general sobre los Técnicos en Cuidados Auxiliares de Enfermería (TCAE)?","opciones":{"A":"La limpieza, selección del material, desinfección, empaquetado y esterilización.","B":"La reparación electromecánica de las bombas de vacío y las placas de control.","C":"La gestión directa de todo el material y la organización del personal.","D":"La supervisión normativa de la central como médico de Salud Pública."},"correcta":"A","explicacion":"El texto destaca que los TCAE son los encargados de llevar a cabo las tareas propias y específicas de la central: limpieza, selección del material, desinfección, empaquetado, esterilización, etc. (B corresponde al técnico de mantenimiento, C al supervisor y D al técnico gerente)."},{"id":150,"temaId":"T6","tema":"6. La Unidad Central de Esterilización (UCE)","subtemaId":"6.4","subtema":"6.4. El personal de la UCE","enunciado":"Una válvula de seguridad de un autoclave de vapor falla durante las pruebas previas y unas tijeras quirúrgicas presentan holgura en su articulación. ¿Qué integrante de la organización de la UCE se ocupa de su reparación?","opciones":{"A":"El supervisor graduado en enfermería de gestión directa.","B":"El técnico de mantenimiento responsable de máquinas e instrumentos.","C":"El técnico gerente especialista en Salud Pública y Preventiva.","D":"El TCAE asignado al área de control y empaquetado de la zona limpia."},"correcta":"B","explicacion":"Según la tabla del personal de la UCE, el Técnico de mantenimiento es el responsable tanto del mantenimiento como de la reparación de las máquinas e instrumentos de la unidad."}];
+        const LETTERS = ['A', 'B', 'C', 'D'];
+
+        const byTemaCount = {};
+        const bySubtemaCount = {};
+        TEMAS_ESTRUCTURA.forEach((t) => {
+          byTemaCount[t.id] = 0;
+          t.subtemas.forEach((s) => {
+            bySubtemaCount[s.id] = 0;
+          });
+        });
+        QUESTIONS.forEach((q) => {
+          byTemaCount[q.temaId] = (byTemaCount[q.temaId] || 0) + 1;
+          bySubtemaCount[q.subtemaId] = (bySubtemaCount[q.subtemaId] || 0) + 1;
+        });
+
+        const state = {
+          scope: 'all',
+          temaId: TEMAS_ESTRUCTURA[0].id,
+          subtemaId: TEMAS_ESTRUCTURA[0].subtemas[0].id,
+          count: 20,
+          order: 'sequential',
+          session: [],
+          index: 0,
+          answers: {},
+          showMissed: false,
+          isRetryMode: false,
+          lastFalladasQuestions: [],
+        };
+
+        const elWelcome = document.getElementById('view-welcome');
+        const elQuiz = document.getElementById('view-quiz');
+        const elResults = document.getElementById('view-results');
+
+        const elAvailable = document.getElementById('lbl-available');
+        const elPanelTema = document.getElementById('panel-tema');
+        const elPanelSubtema = document.getElementById('panel-subtema');
+        const elSelTema = document.getElementById('sel-tema');
+        const elSelSubtema = document.getElementById('sel-subtema');
+        const elPresetContainer = document.getElementById('preset-container');
+        const elInpCount = document.getElementById('inp-count');
+        const elCountRange = document.getElementById('lbl-count-range');
+        const elBtnStart = document.getElementById('btn-start');
+
+        function svgCheck() {
+          return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>';
+        }
+
+        function svgCross() {
+          return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>';
+        }
+
+        function getPool() {
+          if (state.scope === 'subtema') {
+            return QUESTIONS.filter((q) => q.subtemaId === state.subtemaId);
+          }
+          if (state.scope === 'tema') {
+            return QUESTIONS.filter((q) => q.temaId === state.temaId);
+          }
+          return QUESTIONS.slice();
+        }
+
+        function showView(name) {
+          elWelcome.classList.toggle('hidden', name !== 'welcome');
+          elQuiz.classList.toggle('hidden', name !== 'quiz');
+          elResults.classList.toggle('hidden', name !== 'results');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderWelcome() {
+          document.querySelectorAll('[data-scope]').forEach((btn) => {
+            const active = btn.getAttribute('data-scope') === state.scope;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-checked', String(active));
+          });
+
+          document.querySelectorAll('[data-order]').forEach((btn) => {
+            btn.classList.toggle('active', btn.getAttribute('data-order') === state.order);
+          });
+
+          elPanelTema.classList.toggle('hidden', state.scope !== 'tema');
+          elPanelSubtema.classList.toggle('hidden', state.scope !== 'subtema');
+
+          if (state.scope === 'tema') {
+            elPanelTema.innerHTML = '';
+            TEMAS_ESTRUCTURA.forEach((t) => {
+              const btn = document.createElement('button');
+              btn.type = 'button';
+              btn.className = 'choice-btn' + (t.id === state.temaId ? ' active' : '');
+              const s1 = document.createElement('span');
+              s1.textContent = t.nombre;
+              const s2 = document.createElement('span');
+              s2.className = 'mono tabular';
+              s2.style.fontSize = '0.75rem';
+              s2.textContent = (byTemaCount[t.id] || 0) + ' preg.';
+              btn.appendChild(s1);
+              btn.appendChild(s2);
+              btn.addEventListener('click', () => {
+                state.temaId = t.id;
+                state.subtemaId = t.subtemas[0].id;
+                state.count = byTemaCount[t.id] || 1;
+                renderWelcome();
+              });
+              elPanelTema.appendChild(btn);
+            });
+          }
+
+          if (state.scope === 'subtema') {
+            elSelTema.innerHTML = '';
+            TEMAS_ESTRUCTURA.forEach((t) => {
+              const opt = document.createElement('option');
+              opt.value = t.id;
+              opt.textContent = t.nombre + ' (' + (byTemaCount[t.id] || 0) + ' preg.)';
+              opt.selected = t.id === state.temaId;
+              elSelTema.appendChild(opt);
+            });
+
+            const temaObj = TEMAS_ESTRUCTURA.find((t) => t.id === state.temaId) || TEMAS_ESTRUCTURA[0];
+            elSelSubtema.innerHTML = '';
+            temaObj.subtemas.forEach((s) => {
+              const opt = document.createElement('option');
+              opt.value = s.id;
+              opt.textContent = s.nombre + ' (' + (bySubtemaCount[s.id] || 0) + ' preg.)';
+              opt.selected = s.id === state.subtemaId;
+              elSelSubtema.appendChild(opt);
+            });
+          }
+
+          const pool = getPool();
+          const avail = pool.length;
+          state.count = Math.max(1, Math.min(state.count, avail));
+
+          elAvailable.textContent = String(avail);
+          elCountRange.textContent = 'Cantidad personalizada (1–' + avail + '):';
+          elInpCount.max = String(avail);
+          elInpCount.value = String(state.count);
+
+          const candidates = [5, 10, 15, 20, 30, 50, 100, avail];
+          const seen = new Set();
+          const presets = [];
+          candidates.forEach((c) => {
+            if (c >= 1 && c <= avail && !seen.has(c)) {
+              seen.add(c);
+              presets.push(c);
+            }
+          });
+          presets.sort((a, b) => a - b);
+
+          elPresetContainer.innerHTML = '';
+          presets.forEach((p) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'preset-btn tabular' + (state.count === p ? ' active' : '');
+            btn.textContent = p === avail ? 'Todas (' + p + ')' : String(p);
+            btn.addEventListener('click', () => {
+              state.count = p;
+              renderWelcome();
+            });
+            elPresetContainer.appendChild(btn);
+          });
+
+          elBtnStart.textContent = 'Comenzar práctica (' + state.count + ' preguntas)';
+        }
+
+        function startSession() {
+          const pool = getPool();
+          if (state.order === 'random') {
+            for (let i = pool.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              const tmp = pool[i];
+              pool[i] = pool[j];
+              pool[j] = tmp;
+            }
+          }
+          const safeCount = Math.max(1, Math.min(state.count, pool.length));
+          state.session = pool.slice(0, safeCount);
+          state.index = 0;
+          state.answers = {};
+          state.isRetryMode = false;
+          showView('quiz');
+          renderQuiz();
+        }
+
+        function startRetryIncorrect() {
+          if (!state.lastFalladasQuestions.length) return;
+          state.session = state.lastFalladasQuestions.slice();
+          state.index = 0;
+          state.answers = {};
+          state.isRetryMode = true;
+          showView('quiz');
+          renderQuiz();
+        }
+
+        function renderQuiz() {
+          const q = state.session[state.index];
+          const total = state.session.length;
+          const selected = state.answers[q.id];
+          const isAnswered = selected !== undefined;
+          const isCorrect = isAnswered && selected === q.correcta;
+
+          let answeredCount = 0;
+          let correctCount = 0;
+          state.session.forEach((item) => {
+            const ans = state.answers[item.id];
+            if (ans !== undefined) {
+              answeredCount++;
+              if (ans === item.correcta) correctCount++;
+            }
+          });
+
+          document.getElementById('lbl-progress-index').textContent =
+            'Pregunta ' + (state.index + 1) + ' de ' + total;
+          document.getElementById('lbl-progress-stats').textContent =
+            'Respondidas: ' + answeredCount + ' / ' + total + ' · Aciertos: ' + correctCount;
+
+          const pct = Math.round(((state.index + 1) / total) * 100);
+          document.getElementById('progress-bar').setAttribute('aria-valuenow', String(pct));
+          document.getElementById('progress-fill').style.width = pct + '%';
+
+          document.getElementById('q-topic').textContent = q.tema + ' · ' + q.subtema;
+          document.getElementById('q-id').textContent = 'Pregunta #' + q.id;
+          document.getElementById('q-stem').textContent = q.enunciado;
+
+          const list = document.getElementById('options-list');
+          list.innerHTML = '';
+
+          LETTERS.forEach((letter) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'option-btn';
+            btn.disabled = isAnswered;
+
+            const isSelectedOpt = selected === letter;
+            const isCorrectOpt = q.correcta === letter;
+
+            if (isAnswered) {
+              if (isCorrectOpt) {
+                btn.classList.add('opt-correct');
+              } else if (isSelectedOpt) {
+                btn.classList.add('opt-wrong');
+              } else {
+                btn.classList.add('opt-dim');
+              }
+            }
+
+            const lBox = document.createElement('span');
+            lBox.className = 'option-letter mono';
+            lBox.textContent = letter;
+
+            const tBox = document.createElement('span');
+            tBox.className = 'option-text';
+            tBox.textContent = q.opciones[letter];
+
+            btn.appendChild(lBox);
+            btn.appendChild(tBox);
+
+            if (isAnswered && isCorrectOpt) {
+              const st = document.createElement('span');
+              st.className = 'option-status';
+              st.innerHTML = svgCheck() + '<span>' + (isSelectedOpt ? 'Tu selección · Correcta' : 'Respuesta correcta') + '</span>';
+              btn.appendChild(st);
+            } else if (isAnswered && isSelectedOpt && !isCorrectOpt) {
+              const st = document.createElement('span');
+              st.className = 'option-status';
+              st.innerHTML = svgCross() + '<span>Tu selección · Incorrecta</span>';
+              btn.appendChild(st);
+            }
+
+            btn.addEventListener('click', () => {
+              if (state.answers[q.id] !== undefined) return;
+              state.answers[q.id] = letter;
+              renderQuiz();
+            });
+
+            list.appendChild(btn);
+          });
+
+          const expBox = document.getElementById('explanation-box');
+          if (isAnswered) {
+            expBox.className = 'explanation-box ' + (isCorrect ? 'is-ok' : 'is-err');
+            const head = document.getElementById('explanation-head');
+            if (isCorrect) {
+              head.innerHTML = svgCheck() + '<span>¡Respuesta correcta!</span>';
+            } else {
+              head.innerHTML = svgCross() + '<span>Respuesta incorrecta. La alternativa correcta es la ' + q.correcta + '.</span>';
+            }
+            document.getElementById('explanation-body').textContent = q.explicacion;
+          } else {
+            expBox.className = 'explanation-box hidden';
+          }
+
+          const btnPrev = document.getElementById('btn-prev');
+          const btnNext = document.getElementById('btn-next');
+          const btnFinishEarly = document.getElementById('btn-finish-early');
+
+          btnPrev.disabled = state.index === 0;
+          const isLast = state.index === total - 1;
+          btnNext.textContent = isLast ? 'Ver resultados' : 'Siguiente pregunta';
+          btnFinishEarly.classList.toggle('hidden', isLast || answeredCount === 0);
+        }
+
+        function formatEs(num, dec) {
+          return num.toFixed(dec).replace('.', ',');
+        }
+
+        function renderResults() {
+          let realizadas = 0;
+          let aciertos = 0;
+          const temaMap = new Map();
+          const falladas = [];
+
+          state.session.forEach((q) => {
+            const sel = state.answers[q.id];
+            if (!sel) return;
+            realizadas++;
+            const ok = sel === q.correcta;
+            if (ok) aciertos++;
+            else falladas.push({ q: q, sel: sel });
+
+            const entry = temaMap.get(q.temaId) || { tema: q.tema, realizadas: 0, aciertos: 0 };
+            entry.realizadas++;
+            if (ok) entry.aciertos++;
+            temaMap.set(q.temaId, entry);
+          });
+
+          const errores = realizadas - aciertos;
+          const pct = realizadas > 0 ? (aciertos / realizadas) * 100 : 0;
+          const score10 = realizadas > 0 ? (aciertos / realizadas) * 10 : 0;
+
+          let fbTitle = 'Conviene reforzar los fundamentos antes de repetir';
+          let fbMsg = 'Te recomendamos practicar por epígrafes leyendo con calma cada explicación didáctica tras responder.';
+          if (score10 >= 9) {
+            fbTitle = 'Dominio sobresaliente del proceso de esterilización';
+            fbMsg = 'Has resuelto las situaciones prácticas y criterios de validación con gran precisión técnica.';
+          } else if (score10 >= 7) {
+            fbTitle = 'Muy buen nivel de competencia';
+            fbMsg = 'Comprendes con solidez la mayoría de métodos, empaquetados y controles. Repasa las explicaciones de las preguntas falladas para consolidar los detalles técnicos más finos.';
+          } else if (score10 >= 5) {
+            fbTitle = 'Base superada con margen de mejora';
+            fbMsg = 'Has alcanzado el aprobado, pero conviene afianzar la diferenciación entre parámetros físicos, sistemas químicos a baja temperatura y niveles de validación biológica.';
+          }
+
+          document.getElementById('res-title').textContent = fbTitle;
+          document.getElementById('res-msg').textContent = fbMsg;
+
+          const scoreEl = document.getElementById('res-score');
+          scoreEl.textContent = formatEs(score10, 2) + ' / 10';
+          scoreEl.className = 'score-value tabular ' + (score10 >= 7 ? 'ok' : score10 >= 5 ? 'mid' : 'low');
+
+          document.getElementById('res-formula').textContent = '(' + aciertos + ' / ' + realizadas + ') × 10';
+          document.getElementById('res-completed').textContent =
+            realizadas < state.session.length
+              ? realizadas + ' de ' + state.session.length
+              : String(realizadas);
+          document.getElementById('res-hits').textContent = String(aciertos);
+          document.getElementById('res-errors').textContent = String(errores);
+          document.getElementById('res-percent').textContent = formatEs(pct, 1) + ' %';
+
+          const bdWrap = document.getElementById('res-breakdown-wrap');
+          const bdList = document.getElementById('res-breakdown-list');
+          const entries = Array.from(temaMap.values());
+          bdWrap.classList.toggle('hidden', entries.length <= 1);
+          bdList.innerHTML = '';
+          entries.forEach((row) => {
+            const div = document.createElement('div');
+            div.className = 'breakdown-row';
+            const left = document.createElement('span');
+            left.style.fontWeight = '600';
+            left.textContent = row.tema;
+            const right = document.createElement('span');
+            right.className = 'mono tabular';
+            right.style.fontSize = '0.75rem';
+            right.style.color = 'var(--text-muted)';
+            const rPct = row.realizadas > 0 ? (row.aciertos / row.realizadas) * 100 : 0;
+            right.textContent = row.aciertos + ' / ' + row.realizadas + ' aciertos · ' + formatEs(rPct, 1) + ' %';
+            div.appendChild(left);
+            div.appendChild(right);
+            bdList.appendChild(div);
+          });
+
+          state.showMissed = false;
+          state.lastFalladasQuestions = falladas.map((item) => item.q);
+          const missedWrap = document.getElementById('res-missed-wrap');
+          const missedList = document.getElementById('res-missed-list');
+          const toggleBtn = document.getElementById('btn-toggle-missed');
+          const repeatIncorrectBtn = document.getElementById('btn-repeat-incorrect');
+          const repeatBtn = document.getElementById('btn-repeat');
+
+          missedWrap.classList.toggle('hidden', falladas.length === 0);
+          missedList.classList.add('hidden');
+          toggleBtn.textContent = 'Revisar preguntas falladas (' + falladas.length + ')';
+
+          if (falladas.length > 0) {
+            repeatIncorrectBtn.classList.remove('hidden');
+            repeatIncorrectBtn.textContent = 'Repetir incorrectas (' + falladas.length + ')';
+            repeatBtn.className = 'btn btn-secondary';
+          } else {
+            repeatIncorrectBtn.classList.add('hidden');
+            repeatBtn.className = 'btn btn-primary';
+          }
+
+          missedList.innerHTML = '';
+          falladas.forEach((item) => {
+            const card = document.createElement('div');
+            card.className = 'missed-item';
+            const pMeta = document.createElement('p');
+            pMeta.style.fontSize = '0.75rem';
+            pMeta.style.color = 'var(--text-subtle)';
+            pMeta.textContent = 'Pregunta #' + item.q.id + ' · ' + item.q.subtema;
+
+            const pStem = document.createElement('p');
+            pStem.style.marginTop = '4px';
+            pStem.style.fontWeight = '700';
+            pStem.textContent = item.q.enunciado;
+
+            const pUser = document.createElement('p');
+            pUser.style.marginTop = '8px';
+            pUser.style.color = 'var(--err)';
+            pUser.textContent = 'Tu respuesta (' + item.sel + '): ' + item.q.opciones[item.sel];
+
+            const pOk = document.createElement('p');
+            pOk.style.marginTop = '4px';
+            pOk.style.color = 'var(--ok)';
+            pOk.style.fontWeight = '600';
+            pOk.textContent = 'Respuesta correcta (' + item.q.correcta + '): ' + item.q.opciones[item.q.correcta];
+
+            const pExp = document.createElement('p');
+            pExp.style.marginTop = '8px';
+            pExp.style.color = 'var(--text-muted)';
+            pExp.textContent = item.q.explicacion;
+
+            card.appendChild(pMeta);
+            card.appendChild(pStem);
+            card.appendChild(pUser);
+            card.appendChild(pOk);
+            card.appendChild(pExp);
+            missedList.appendChild(card);
+          });
+        }
+
+        // Event wiring
+        document.querySelectorAll('[data-scope]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            state.scope = btn.getAttribute('data-scope');
+            const pool = getPool();
+            state.count = state.scope === 'all' ? Math.min(state.count, 150) : pool.length;
+            renderWelcome();
+          });
+        });
+
+        document.querySelectorAll('[data-order]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            state.order = btn.getAttribute('data-order');
+            renderWelcome();
+          });
+        });
+
+        elSelTema.addEventListener('change', (e) => {
+          state.temaId = e.target.value;
+          const tObj = TEMAS_ESTRUCTURA.find((t) => t.id === state.temaId) || TEMAS_ESTRUCTURA[0];
+          state.subtemaId = tObj.subtemas[0].id;
+          state.count = bySubtemaCount[state.subtemaId] || 1;
+          renderWelcome();
+        });
+
+        elSelSubtema.addEventListener('change', (e) => {
+          state.subtemaId = e.target.value;
+          state.count = bySubtemaCount[state.subtemaId] || 1;
+          renderWelcome();
+        });
+
+        elInpCount.addEventListener('change', (e) => {
+          const val = Number(e.target.value);
+          const avail = getPool().length;
+          if (!Number.isNaN(val)) {
+            state.count = Math.max(1, Math.min(Math.floor(val), avail));
+          }
+          renderWelcome();
+        });
+
+        elBtnStart.addEventListener('click', startSession);
+        document.getElementById('btn-restart').addEventListener('click', () => {
+          if (state.isRetryMode) {
+            state.index = 0;
+            state.answers = {};
+            renderQuiz();
+          } else {
+            startSession();
+          }
+        });
+        document.getElementById('btn-home-top').addEventListener('click', () => {
+          showView('welcome');
+          renderWelcome();
+        });
+
+        document.getElementById('btn-prev').addEventListener('click', () => {
+          if (state.index > 0) {
+            state.index--;
+            renderQuiz();
+          }
+        });
+
+        document.getElementById('btn-next').addEventListener('click', () => {
+          if (state.index < state.session.length - 1) {
+            state.index++;
+            renderQuiz();
+          } else {
+            showView('results');
+            renderResults();
+          }
+        });
+
+        document.getElementById('btn-finish-early').addEventListener('click', () => {
+          showView('results');
+          renderResults();
+        });
+
+        document.getElementById('btn-toggle-missed').addEventListener('click', () => {
+          state.showMissed = !state.showMissed;
+          document.getElementById('res-missed-list').classList.toggle('hidden', !state.showMissed);
+        });
+
+        document.getElementById('btn-repeat-incorrect').addEventListener('click', startRetryIncorrect);
+        document.getElementById('btn-repeat').addEventListener('click', startSession);
+        document.getElementById('btn-other-topic').addEventListener('click', () => {
+          if (state.scope === 'all') state.scope = 'tema';
+          showView('welcome');
+          renderWelcome();
+        });
+        document.getElementById('btn-home-end').addEventListener('click', () => {
+          showView('welcome');
+          renderWelcome();
+        });
+
+        renderWelcome();
+      })();
+    </script>
+  </body>
+</html>
